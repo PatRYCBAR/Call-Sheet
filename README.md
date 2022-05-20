@@ -22,10 +22,6 @@ Priority:
 Escalation needed?
 ___ Escalation - Ticket# ___ (___)
 ```
-##### Add shortcut for unknown PC
- - PC field
- - `(unable to obtain)`
- - add instead of replace
 ##### Escalation option > blank
  - Escalation dropdown
  - ___ option
@@ -43,6 +39,11 @@ ___ Escalation - Ticket# ___ (___)
 
 ##### Skip KBID field & CI button in Tabbing
  - Knocked-down within the tabbing order compared to the other field
+
+##### Add shortcut for unknown PC
+ - PC field
+ - `(unable to obtain)`
+ - add instead of replace
 
 ---
 ### Past Versions' Changes
