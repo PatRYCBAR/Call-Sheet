@@ -6,9 +6,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-##### Skip KBID field & CI button in Tabbing
- - Move so that it doesn't interfere with tabbing from call category
-
 ##### Bomgar Button update > Reboot time
  - Move reboot time to troubleshooting notes
 
@@ -43,6 +40,9 @@ ___ Escalation - Ticket# ___ (___)
 
 ##### Fix Category
  - incident > issue
+
+##### Skip KBID field & CI button in Tabbing
+ - Knocked-down within the tabbing order compared to the other field
 
 ---
 ### Past Versions' Changes
