@@ -8,8 +8,7 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 ##### Bomgar Button update > Reboot time
  - Move reboot time to troubleshooting notes
-##### Fix Category
- - incident > issue
+
 ##### Generate Call template
 ```
 Received ___
@@ -38,6 +37,9 @@ ___ Escalation - Ticket# ___ (___)
 ---
 ### Most Recent Changes
 #### 5/20/2022
+
+##### Fix Category
+ - incident > issue
 
 ---
 ### Past Versions' Changes
