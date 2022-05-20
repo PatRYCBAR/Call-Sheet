@@ -32,7 +32,7 @@ input{
 <textarea id="steps" name="steps" rows="8" cols="60"></textarea><br>
 
 <label for="PCinfo">PC:</label>
-<textarea id="PCinfo" name="PCinfo" rows="2" cols="30"></textarea><button onclick="CleanBomgar()">Bomgar</button><br>
+<textarea id="PCinfo" name="PCinfo" rows="2" cols="30"></textarea><button onclick="CleanBomgar()">Bomgar</button><button onclick="PCUnableToObtain()">Unknown</button><br>
 
 
 <label for="ProcText">For Proc:</label>
@@ -96,6 +96,10 @@ function ClearFields(){
 /******************
 Button Methods
 ******************/
+
+function PCUnableToObtain() {
+  ObjCalled("PCinfo").value = ValueCalled("PCinfo").concat("(unable to obtain)");
+}
 
 function KBCIURL() {
   let KBID = ValueCalled("KBID");
