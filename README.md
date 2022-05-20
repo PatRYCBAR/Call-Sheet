@@ -6,7 +6,7 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-##### Move CI field
+##### Skip KBID field & CI button in Tabbing
  - Move so that it doesn't interfere with tabbing from call category
 
 ##### Bomgar Button update > Reboot time
