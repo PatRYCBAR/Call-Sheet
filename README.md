@@ -1,6 +1,7 @@
 # Call-Notes
 ## Overview
 ## Changes
+---
 ### Upcoming Changes
 
 ##### Bomgar Button update > Reboot time
@@ -32,7 +33,11 @@ ___ Escalation - Ticket# ___ (___)
  - Escalation dropdown
  - "Affecting Patient Care" option > change to check box or secondary option
  - reset with changed ticket
+---
 ### Most Recent Changes
 #### 5/20/2022
 
+---
 ### Past Versions' Changes
+---
+---
