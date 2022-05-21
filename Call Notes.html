@@ -42,6 +42,7 @@ input{
 
 <label for="Escalations">Escalation?</label>
 <select name="Escalations" id= "Escalations">
+  <option value="___">___</option>
   <option value="Standard">Standard</option>
   <option value="Epic">Epic</option>
   <option value="Possible Outage">Possible Outage</option>
@@ -91,6 +92,7 @@ function ClearFields(){
     ObjCalled("steps").value = "";
     ObjCalled("PCinfo").value = "";
     ObjCalled("ProcText").value = "";
+    ObjCalled("Escalations").value = "___";
 }
 
 /******************
@@ -137,14 +139,14 @@ function CompressCall() {
   
   let compNotes = "";
   
-  userID    = ValueCalled("UserID");
-  ticketID  = ValueCalled("Ticket");
-  AppID     = ValueCalled("App");
-  KBID      = ValueCalled("KBID");
-  TicketType= ValueCalled("TicketType");
-  callNotes = ValueCalled("this_call");
-  steps     = ValueCalled("steps");
-  PCname    = ValueCalled("PCinfo");
+  userID     = ValueCalled("UserID");
+  ticketID   = ValueCalled("Ticket");
+  AppID      = ValueCalled("App");
+  KBID       = ValueCalled("KBID");
+  TicketType = ValueCalled("TicketType");
+  callNotes  = ValueCalled("this_call");
+  steps      = ValueCalled("steps");
+  PCname     = ValueCalled("PCinfo");
   
   compressionFact = compressionFact.concat(userID)
     .concat(ticketID)
@@ -205,6 +207,9 @@ function makeEscSubjLine() {
   esctick = ValueCalled("Ticket");
 
   switch (esctype){
+    case "___":
+      emailsubjp1 = "Escalation";
+      break;
     case "Standard":
       emailsubjp1 = "Escalation";
       break;
