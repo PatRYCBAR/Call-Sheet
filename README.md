@@ -22,15 +22,13 @@ Priority:
 Escalation needed?
 ___ Escalation - Ticket# ___ (___)
 ```
-##### Escalation option > blank
- - Escalation dropdown
- - ___ option
- - reset with changed ticket
+
 ##### Escalation option > pull out riders
  - Escalation dropdown
  - "Affecting Patient Care" option > change to check box or secondary option
  - reset with changed ticket
 ---
+
 ### Most Recent Changes
 #### 5/20/2022
 
@@ -44,6 +42,11 @@ ___ Escalation - Ticket# ___ (___)
  - PC field
  - `(unable to obtain)`
  - add instead of replace
+
+##### Escalation option > blank
+ - Escalation dropdown
+ - ___ option
+ - reset with changed ticket
 
 ---
 ### Past Versions' Changes
