@@ -32,7 +32,7 @@ ___ Escalation - Ticket# ___ (___)
  - not sure if it should go in the processor field or just be a feature of the username field
  - take out of tab index
 
-#### Expand Ticket ID field to hold more than 1 ticket
+#### Expand Ticket ID field to hold more than 1 ticket number
 
 ---
 
@@ -42,6 +42,9 @@ ___ Escalation - Ticket# ___ (___)
 #### Fast load / outage templates
  - square on the side that doesn't get deleted
  - button to add to Call Notes & Troubleshooting fields
+
+#### Expand Ticket ID field
+ - to hold more than 1 ticket number
 
 ---
 ### Past Versions' Changes
