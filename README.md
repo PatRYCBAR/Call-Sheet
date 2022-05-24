@@ -28,12 +28,6 @@ ___ Escalation - Ticket# ___ (___)
  - "Affecting Patient Care" option > change to check box or secondary option
  - reset with changed ticket
 
-#### Processor > UPPERCASE & lowercase
- - not sure if it should go in the processor field or just be a feature of the username field
- - take out of tab index
-
-#### Expand Ticket ID field to hold more than 1 ticket number
-
 ---
 
 ### Most Recent Changes
@@ -45,6 +39,12 @@ ___ Escalation - Ticket# ___ (___)
 
 #### Expand Ticket ID field
  - to hold more than 1 ticket number
+
+
+#### User ID > UPPERCASE & lowercase
+ - not sure if it should go in the processor field or just be a feature of the username field
+ - take out of tab index
+
 
 ---
 ### Past Versions' Changes
