@@ -33,7 +33,7 @@ input{
 <label for="Ticket">Ticket:</label>
   <input type="text" id="Ticket" name="Ticket" size="40"><br>
 <label for="UserID">User ID:</label>
-  <input type="text" id="UserID" name="UserID"><br>
+  <input type="text" id="UserID" name="UserID"><button onclick="ToCAPS()">ABC </button> <button onclick="ToLower()">abc</button><br>
 <label for="App">App:</label>
   <input type="text" id="App" name="App">
   <input tabindex="1" type="text" id="KBID" name="KBID">
@@ -145,6 +145,16 @@ function ClearFields(){
 /******************
 Button Methods
 ******************/
+
+function ToCAPS() {
+  ObjCalled("UserID").value = ValueCalled("UserID").toUpperCase();
+  ObjCalled("UserID").focus();
+}
+
+function ToLower() {
+  ObjCalled("UserID").value = ValueCalled("UserID").toLowerCase();
+  ObjCalled("UserID").focus();
+}
 
 function ApplyMacro01() {
   ObjCalled("this_call").value = ValueCalled("this_call").concat(ValueCalled("macro_01_this_call"));
