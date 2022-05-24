@@ -5,6 +5,25 @@
 input{
   padding: 5px;
 }
+
+.collapsible {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  width: 425px;
+  border: none;
+  text-align: Right;
+  outline: none;
+}
+
+.active, .collapsible:hover {
+  background-color: #d1d1d1;
+}
+
+.content {
+  display: none;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
 </style>
 </head>
 <body>
@@ -51,6 +70,14 @@ input{
 <button onclick="makeEscSubjLine()">Generate</button>
 <br>
 
+<button onclick="ApplyMacro01()">Apply</button><button type="button" class="collapsible">Macro</button>
+<div class="content">
+<p><label for="macro_01_this_call">Call Notes </label><br>
+<textarea id="macro_01_this_call" name="macro_01_this_call" rows="10" cols="60"></textarea><br>
+
+<label for="macro_01_steps">Troubleshooting:</label><br>
+<textarea id="macro_01_steps" name="macro_01_steps" rows="8" cols="60"></textarea><br>
+</div>
 
 <p>---</p>
 
@@ -62,6 +89,26 @@ input{
 
 
 <script>
+
+/******************
+Intialization
+******************/
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
 /******************
 Utility Methods
 ******************/
@@ -98,6 +145,11 @@ function ClearFields(){
 /******************
 Button Methods
 ******************/
+
+function ApplyMacro01() {
+  ObjCalled("this_call").value = ValueCalled("this_call").concat(ValueCalled("macro_01_this_call"));
+  ObjCalled("steps").value = ValueCalled("steps").concat(ValueCalled("macro_01_steps"));
+}
 
 function PCUnableToObtain() {
   ObjCalled("PCinfo").value = ValueCalled("PCinfo").concat("(unable to obtain)");
