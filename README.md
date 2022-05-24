@@ -14,9 +14,20 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - "Affecting Patient Care" option > change to check box or secondary option
  - reset with changed ticket
 
+##### Extra ticket keeping PC name also
+
+##### Add PeopleSoft as an Escalation option
+
 ---
 
 ### Most Recent Changes
+
+#### 5/24/2022
+
+---
+### Past Versions' Changes
+---
+---
 #### 5/23/2022
 
 #### Fast load / outage templates
@@ -42,11 +53,8 @@ Caller =
 Callback = 
 For = 
 ```
+---
 
----
-### Past Versions' Changes
----
----
 #### 5/20/2022
 
 ##### Fix Category
