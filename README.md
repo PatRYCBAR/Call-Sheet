@@ -45,6 +45,12 @@ ___ Escalation - Ticket# ___ (___)
  - not sure if it should go in the processor field or just be a feature of the username field
  - take out of tab index
 
+#### Added Phone Field
+ - made it hidden
+ - added it to the Cleaning method
+ - exempted it when creating an Extra Ticket
+
+
 
 ---
 ### Past Versions' Changes
