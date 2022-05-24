@@ -9,20 +9,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ##### Bomgar Button update > Reboot time
  - Move reboot time to troubleshooting notes
 
-##### Generate Call template
-```
-Received ___
-___
-Caller = 
-Callback = 
-For = 
-
-Priority:
-
-Escalation needed?
-___ Escalation - Ticket# ___ (___)
-```
-
 ##### Escalation option > pull out riders
  - Escalation dropdown
  - "Affecting Patient Care" option > change to check box or secondary option
@@ -50,7 +36,12 @@ ___ Escalation - Ticket# ___ (___)
  - added it to the Cleaning method
  - exempted it when creating an Extra Ticket
 
-
+##### Generate Call template
+```
+Caller = 
+Callback = 
+For = 
+```
 
 ---
 ### Past Versions' Changes
