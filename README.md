@@ -28,10 +28,6 @@ ___ Escalation - Ticket# ___ (___)
  - "Affecting Patient Care" option > change to check box or secondary option
  - reset with changed ticket
 
-#### Fast load / outage templates
- - square on the side that doesn't get deleted
- - button to add to Call Notes & Troubleshooting fields
-
 #### Processor > UPPERCASE & lowercase
  - not sure if it should go in the processor field or just be a feature of the username field
  - take out of tab index
@@ -42,6 +38,10 @@ ___ Escalation - Ticket# ___ (___)
 
 ### Most Recent Changes
 #### 5/23/2022
+
+#### Fast load / outage templates
+ - square on the side that doesn't get deleted
+ - button to add to Call Notes & Troubleshooting fields
 
 ---
 ### Past Versions' Changes
