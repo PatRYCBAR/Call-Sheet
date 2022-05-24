@@ -58,7 +58,7 @@ input{
 
 
 <label for="ProcText">For Proc:</label>
-<button onclick="CompressCall()">Compress</button><br>
+<button onclick="CompressCall()">Compress</button><button onclick="FollowupCall()">Call</button><br>
 <textarea id="ProcText" name="ProcText" rows="3" cols="60"></textarea><br>
 
 
@@ -154,6 +154,25 @@ function ClearFields(){
 Button Methods
 ******************/
 
+function FollowupCall() {
+  let userID = "";
+  let ticketID = "";
+  let phone = "";
+  
+  let compNotes = "";
+  
+  userID     = ValueCalled("UserID");
+  ticketID   = ValueCalled("Ticket");
+  phone      = ValueCalled("phone");
+    
+  compNotes = compNotes
+    .concat("Caller = ___ (" + userID + ")")
+    .concat("\nCallback = " + phone)
+    .concat("\nFor = " + ticketID);
+
+  ObjCalled("ProcText").value = compNotes;
+}
+
 function ToCAPS() {
   ObjCalled("UserID").value = ValueCalled("UserID").toUpperCase();
   ObjCalled("UserID").focus();
@@ -197,7 +216,6 @@ function CleanBomgar() {
 }
 
 function CompressCall() {
-  let compressionFact = "";
   let userID = "";
   let ticketID = "";
   let AppID = "";
@@ -217,13 +235,6 @@ function CompressCall() {
   callNotes  = ValueCalled("this_call");
   steps      = ValueCalled("steps");
   PCname     = ValueCalled("PCinfo");
-  
-  compressionFact = compressionFact.concat(userID)
-    .concat(ticketID)
-    .concat(AppID)
-    .concat(KBID)
-    .concat(steps)
-    .concat(PCname);
     
   compNotes = compNotes.concat("Issue Description (Including Error Message) = ")
     .concat("\n" + AppID)
