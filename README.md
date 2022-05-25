@@ -6,8 +6,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-##### Escalation option > Add "PeopleSoft"
-
 ##### Update "Compress" button
  - Add option for tag suppression
  - Update name to "Ticket"
@@ -33,6 +31,8 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - Escalation dropdown
  - "Affecting Patient Care" option > change to check box or secondary option
  - reset with changed ticket
+
+##### Escalation option > Add "PeopleSoft"
 
 ---
 ### Past Versions' Changes
