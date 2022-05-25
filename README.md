@@ -6,9 +6,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-##### Bomgar Button update > Reboot time
- - Move reboot time to troubleshooting notes
-
 ##### Escalation option > pull out riders
  - Escalation dropdown
  - "Affecting Patient Care" option > change to check box or secondary option
@@ -33,6 +30,9 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 #### 5/25/2022
 
 ##### Update "Extra ticket" to keep PC name also
+
+##### Bomgar Button update > Reboot time
+ - Move reboot time to troubleshooting notes
 
 
 ---
