@@ -67,6 +67,7 @@ input{
   <option value="___">___</option>
   <option value="Standard">Standard</option>
   <option value="Epic">Epic</option>
+  <option value="PeopleSoft">PeopleSoft</option>
   <option value="Possible Outage">Possible Outage</option>
 </select>
 <span style="background-color: #f3f3f3;"><input type="checkbox" id="APCEsc" name="APCEsc"><label for="APCEsc">Affecting Patient Care?</label><span>
@@ -309,6 +310,9 @@ function makeEscSubjLine() {
       break;
     case "Epic":
       emailsubjp1 = "Epic";
+      break;
+    case "PeopleSoft":
+      emailsubjp1 = "PeopleSoft";
       break;
     case "Possible Outage":
       emailsubjp1 = "Possible Outage";
