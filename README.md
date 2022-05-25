@@ -6,11 +6,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-##### Escalation option > pull out riders
- - Escalation dropdown
- - "Affecting Patient Care" option > change to check box or secondary option
- - reset with changed ticket
-
 ##### Escalation option > Add "PeopleSoft"
 
 ##### Update "Compress" button
@@ -34,6 +29,10 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ##### Bomgar Button update > Reboot time
  - Move reboot time to troubleshooting notes
 
+##### Escalation option > pull out riders
+ - Escalation dropdown
+ - "Affecting Patient Care" option > change to check box or secondary option
+ - reset with changed ticket
 
 ---
 ### Past Versions' Changes
