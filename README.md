@@ -14,15 +14,25 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - "Affecting Patient Care" option > change to check box or secondary option
  - reset with changed ticket
 
-##### Extra ticket keeping PC name also
+##### Escalation option > Add "PeopleSoft"
 
-##### Add PeopleSoft as an Escalation option
+##### Update "Extra ticket" to keep PC name also
+
+##### Update "Compress" button
+ - Add option for tag suppression
+ - Update name to "Ticket"
+
+##### Location notation
+ - Drop down for "Remote / Onsite"
+ - Drop down for Facility and text box for More info
+
+##### Formatting Button for "Follow-ups"
 
 ---
 
 ### Most Recent Changes
 
-#### 5/24/2022
+#### 5/25/2022
 
 ---
 ### Past Versions' Changes
