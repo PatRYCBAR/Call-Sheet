@@ -253,11 +253,13 @@ function CompressCall() {
 function extraTicket() {
   let UserID = ValueCalled("UserID");
   let phone = ValueCalled("phone");
+  let PCinfo = ValueCalled("PCinfo");
   moveToNextCall();
   ObjCalled("phonearea").style.display = "block";
   ObjCalled("phonebutton").classList.toggle("active");
   ObjCalled("UserID").value = UserID;
   ObjCalled("phone").value = phone;
+  ObjCalled("PCinfo").value = PCinfo;
 }
 
 function moveToNextCall() {
