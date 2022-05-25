@@ -204,15 +204,21 @@ function CleanBomgar() {
   let PCname_start = "Computer Name:       ";
   let PCname_end = "Operating System:    ";
   let lastReboot = "";
+  let lastReboot_start = "Uptime:              ";
+  let lastReboot_end = "Required Skills:     ";
   let oldStep = "";
-  let newSteps = "";
   
   fullStats = ValueCalled("PCinfo");
   oldStep   = ValueCalled("steps");
   
   PCname = StringBetween(fullStats, PCname_start, PCname_end, -1);
+  lastReboot = StringBetween(fullStats, lastReboot_start, lastReboot_end, -1);
   
-  if(PCname !== "") ObjCalled("PCinfo").value = PCname;
+  if(PCname !== "")
+  {
+    ObjCalled("PCinfo").value = PCname;
+    ObjCalled("steps").value = oldStep.concat("\nLast Reboot = " + lastReboot);
+  }
 }
 
 function CompressCall() {
