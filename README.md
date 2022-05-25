@@ -16,8 +16,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 ##### Escalation option > Add "PeopleSoft"
 
-##### Update "Extra ticket" to keep PC name also
-
 ##### Update "Compress" button
  - Add option for tag suppression
  - Update name to "Ticket"
@@ -33,6 +31,9 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ### Most Recent Changes
 
 #### 5/25/2022
+
+##### Update "Extra ticket" to keep PC name also
+
 
 ---
 ### Past Versions' Changes
