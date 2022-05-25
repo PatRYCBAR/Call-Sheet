@@ -68,8 +68,8 @@ input{
   <option value="Standard">Standard</option>
   <option value="Epic">Epic</option>
   <option value="Possible Outage">Possible Outage</option>
-  <option value="Affecting Patient Care">Affecting Patient Care</option>
 </select>
+<span style="background-color: #f3f3f3;"><input type="checkbox" id="APCEsc" name="APCEsc"><label for="APCEsc">Affecting Patient Care?</label><span>
 <button onclick="makeEscSubjLine()">Generate</button>
 <br>
 
@@ -148,6 +148,7 @@ function ClearFields(){
     ObjCalled("PCinfo").value = "";
     ObjCalled("ProcText").value = "";
     ObjCalled("Escalations").value = "___";
+    ObjCalled("APCEsc").checked = false;
 }
 
 /******************
@@ -312,16 +313,13 @@ function makeEscSubjLine() {
     case "Possible Outage":
       emailsubjp1 = "Possible Outage";
       break;
-    case "Affecting Patient Care":
-      emailsubjp1 = "___.Escalation";
-      break;
     default:
       emailsubjp1 = "Unknown";
   }
   
   if (esctick !== "") emailsubjp2 = esctick;
   
-  if (esctype == "Affecting Patient Care") emailsubjp4 = " **Affecting Patient Care**";
+  if (ObjCalled("APCEsc").checked) emailsubjp4 = " **Affecting Patient Care**";
   
   emailsubj = emailsubj.concat(emailsubjp1)
     .concat(" - Ticket# ")
