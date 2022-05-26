@@ -16,10 +16,27 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 ##### Formatting Button for "Follow-ups"
 
+#### VDI output section
+ - input to PC section
+ - leave PC name
+ - append VDI format to end of notes
+
+#### Add "OUTBOUND" and "CALL" under list of call types
+
+#### Add quick-format for PC profile
+ - `PC is = __.stationary desktop / WOW > ___.separate / combined tower-monitor`
+
+
 ---
 
 ### Most Recent Changes
 
+#### 5/26/2022
+
+---
+### Past Versions' Changes
+---
+---
 #### 5/25/2022
 
 ##### Update "Extra ticket" to keep PC name also
@@ -35,9 +52,7 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ##### Escalation option > Add "PeopleSoft"
 
 ---
-### Past Versions' Changes
----
----
+
 #### 5/23/2022
 
 #### Fast load / outage templates
