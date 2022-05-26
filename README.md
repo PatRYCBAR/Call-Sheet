@@ -16,14 +16,14 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 ##### Formatting Button for "Follow-ups"
 
-#### VDI output section
+##### VDI output section
  - input to PC section
  - leave PC name
  - append VDI format to end of notes
 
-#### Add "OUTBOUND" and "CALL" under list of call types
+##### Add "OUTBOUND" and "CALL" under list of call types
 
-#### Add quick-format for PC profile
+##### Add quick-format for PC profile
  - `PC is = __.stationary desktop / WOW > ___.separate / combined tower-monitor`
 
 
