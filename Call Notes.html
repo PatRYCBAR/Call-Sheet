@@ -27,7 +27,9 @@ input{
 </head>
 <body>
 
-<button onclick="moveToNextCall()">Next Call</button> <button onclick="extraTicket()">Extra Ticket</button><br>
+<button onclick="moveToNextCall()">Next Call</button>
+  <button onclick="extraTicket()">Extra Ticket</button>
+  <button onclick="copyTicket()">Copy Ticket</button><br>
 
 <label for="Ticket">Ticket:</label>
   <input type="text" id="Ticket" name="Ticket" size="40"><br>
@@ -134,22 +136,33 @@ window.addEventListener('beforeunload', (event) => {
 });
 
 function ClearFields(){
-    ObjCalled("UserID").value = "";
-    ObjCalled("Ticket").value = "";
-    ObjCalled("phone").value = "";
-    if (ObjCalled("phonearea").style.display === "block") {
-      ObjCalled("phonearea").style.display = "none";
-      ObjCalled("phonebutton").classList.toggle("active");
-    }
-    ObjCalled("App").value = "";
-    ObjCalled("KBID").value = "";
-    ObjCalled("TicketType").value = "___ > ";
-    ObjCalled("this_call").value = "";
-    ObjCalled("steps").value = "";
-    ObjCalled("PCinfo").value = "";
-    ObjCalled("ProcText").value = "";
-    ObjCalled("Escalations").value = "___";
-    ObjCalled("APCEsc").checked = false;
+  ObjCalled("UserID").value = "";
+  ObjCalled("Ticket").value = "";
+  ObjCalled("phone").value = "";
+  Collapse ("phonebutton", "phonearea");
+  ObjCalled("App").value = "";
+  ObjCalled("KBID").value = "";
+  ObjCalled("TicketType").value = "___ > ";
+  ObjCalled("this_call").value = "";
+  ObjCalled("steps").value = "";
+  ObjCalled("PCinfo").value = "";
+  ObjCalled("ProcText").value = "";
+  ObjCalled("Escalations").value = "___";
+  ObjCalled("APCEsc").checked = false;
+}
+
+function Collapse (buttonlabel, arealabel) {
+  if (ObjCalled(arealabel).style.display === "block") {
+    ObjCalled(arealabel).style.display = "none";
+    ObjCalled(buttonlabel).classList.toggle("active");
+  }
+}
+
+function Uncollapse (buttonlabel, arealabel) {
+  if (ObjCalled(arealabel).style.display != "block") {
+    ObjCalled(arealabel).style.display = "block";
+    ObjCalled(buttonlabel).classList.toggle("active");
+  }
 }
 
 /******************
@@ -258,19 +271,29 @@ function CompressCall() {
   ObjCalled("ProcText").value = compNotes;  
 }
 
+function copyTicket() {
+  Uncollapse("phonebutton", "phonearea");
+  logCall();
+  ObjCalled("Ticket").value = "";
+}
+
 function extraTicket() {
   let UserID = ValueCalled("UserID");
   let phone = ValueCalled("phone");
   let PCinfo = ValueCalled("PCinfo");
   moveToNextCall();
-  ObjCalled("phonearea").style.display = "block";
-  ObjCalled("phonebutton").classList.toggle("active");
+  Uncollapse("phonebutton", "phonearea");
   ObjCalled("UserID").value = UserID;
   ObjCalled("phone").value = phone;
   ObjCalled("PCinfo").value = PCinfo;
 }
 
 function moveToNextCall() {
+  logCall();
+  ClearFields();
+}
+  
+function logCall() {
   let logaddition = "";
   let currentlog = "";
   let newlog = "";
@@ -284,9 +307,7 @@ function moveToNextCall() {
   newlog = newlog.concat("\n\n---\n\n");
   newlog = newlog.concat(currentlog);
   
-  // ObjCalled("this_call").value = "";
   ObjCalled("call_log").value = newlog;
-  ClearFields();
 }
 
 function makeEscSubjLine() {
