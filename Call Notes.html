@@ -5,6 +5,24 @@
 input{
   padding: 5px;
 }
+
+.collapsible {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  border: none;
+  text-align: Right;
+  outline: none;
+}
+
+.active, .collapsible:hover {
+  background-color: #d1d1d1;
+}
+
+.content {
+  display: none;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
 </style>
 </head>
 <body>
@@ -12,17 +30,21 @@ input{
 <button onclick="moveToNextCall()">Next Call</button> <button onclick="extraTicket()">Extra Ticket</button><br>
 
 <label for="Ticket">Ticket:</label>
-  <input type="text" id="Ticket" name="Ticket"><br>
+  <input type="text" id="Ticket" name="Ticket" size="40"><br>
 <label for="UserID">User ID:</label>
-  <input type="text" id="UserID" name="UserID" autofocus><br>
+  <input type="text" id="UserID" name="UserID"><button tabindex="1" onclick="ToCAPS()">ABC </button> <button tabindex="1" onclick="ToLower()">abc</button><button type="button" class="collapsible" style="width: 100px;" id="phonebutton">Phone</button>
+<div class="content" id="phonearea">
+<label for="phone">Phone:</label><br>
+<textarea id="phone" name="phone" rows="2" cols="30"></textarea>
+</div><br>
 <label for="App">App:</label>
   <input type="text" id="App" name="App">
-  <input type="text" id="KBID" name="KBID">
-  <button onclick="KBCIURL()">CI</button>
+  <input tabindex="1" type="text" id="KBID" name="KBID">
+  <button tabindex="1" 	onclick="KBCIURL()">CI</button><br>
 
 <p><label for="this_call">Call Notes </label> <select name="TicketType" id= "TicketType">
   <option value="___ > ">___ > </option>
-  <option value="incident > ">incident > </option>
+  <option value="issue > ">issue > </option>
   <option value="question > ">question > </option>
   <option value="task > ">task > </option>
 </select></p>
@@ -32,24 +54,34 @@ input{
 <textarea id="steps" name="steps" rows="8" cols="60"></textarea><br>
 
 <label for="PCinfo">PC:</label>
-<textarea id="PCinfo" name="PCinfo" rows="2" cols="30"></textarea><button onclick="CleanBomgar()">Bomgar</button><br>
+<textarea id="PCinfo" name="PCinfo" rows="2" cols="30"></textarea><button onclick="CleanBomgar()">Bomgar</button><button onclick="PCUnableToObtain()">Unknown</button><br>
 
 
 <label for="ProcText">For Proc:</label>
-<button onclick="CompressCall()">Compress</button><br>
+<button onclick="CompressCall()">Compress</button><button onclick="FollowupCall()">Call</button><br>
 <textarea id="ProcText" name="ProcText" rows="3" cols="60"></textarea><br>
 
 
 <label for="Escalations">Escalation?</label>
 <select name="Escalations" id= "Escalations">
+  <option value="___">___</option>
   <option value="Standard">Standard</option>
   <option value="Epic">Epic</option>
+  <option value="PeopleSoft">PeopleSoft</option>
   <option value="Possible Outage">Possible Outage</option>
-  <option value="Affecting Patient Care">Affecting Patient Care</option>
 </select>
+<span style="background-color: #f3f3f3;"><input type="checkbox" id="APCEsc" name="APCEsc"><label for="APCEsc">Affecting Patient Care?</label><span>
 <button onclick="makeEscSubjLine()">Generate</button>
 <br>
 
+<button onclick="ApplyMacro01()">Apply</button><button type="button" class="collapsible" style="width: 400px;">Macro</button>
+<div class="content">
+<p><label for="macro_01_this_call">Call Notes </label><br>
+<textarea id="macro_01_this_call" name="macro_01_this_call" rows="10" cols="60"></textarea><br>
+
+<label for="macro_01_steps">Troubleshooting:</label><br>
+<textarea id="macro_01_steps" name="macro_01_steps" rows="8" cols="60"></textarea><br>
+</div>
 
 <p>---</p>
 
@@ -61,6 +93,26 @@ input{
 
 
 <script>
+
+/******************
+Intialization
+******************/
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
 /******************
 Utility Methods
 ******************/
@@ -84,6 +136,11 @@ window.addEventListener('beforeunload', (event) => {
 function ClearFields(){
     ObjCalled("UserID").value = "";
     ObjCalled("Ticket").value = "";
+    ObjCalled("phone").value = "";
+    if (ObjCalled("phonearea").style.display === "block") {
+      ObjCalled("phonearea").style.display = "none";
+      ObjCalled("phonebutton").classList.toggle("active");
+    }
     ObjCalled("App").value = "";
     ObjCalled("KBID").value = "";
     ObjCalled("TicketType").value = "___ > ";
@@ -91,11 +148,51 @@ function ClearFields(){
     ObjCalled("steps").value = "";
     ObjCalled("PCinfo").value = "";
     ObjCalled("ProcText").value = "";
+    ObjCalled("Escalations").value = "___";
+    ObjCalled("APCEsc").checked = false;
 }
 
 /******************
 Button Methods
 ******************/
+
+function FollowupCall() {
+  let userID = "";
+  let ticketID = "";
+  let phone = "";
+  
+  let compNotes = "";
+  
+  userID     = ValueCalled("UserID");
+  ticketID   = ValueCalled("Ticket");
+  phone      = ValueCalled("phone");
+    
+  compNotes = compNotes
+    .concat("Caller = ___ (" + userID + ")")
+    .concat("\nCallback = " + phone)
+    .concat("\nFor = " + ticketID);
+
+  ObjCalled("ProcText").value = compNotes;
+}
+
+function ToCAPS() {
+  ObjCalled("UserID").value = ValueCalled("UserID").toUpperCase();
+  ObjCalled("UserID").focus();
+}
+
+function ToLower() {
+  ObjCalled("UserID").value = ValueCalled("UserID").toLowerCase();
+  ObjCalled("UserID").focus();
+}
+
+function ApplyMacro01() {
+  ObjCalled("this_call").value = ValueCalled("this_call").concat(ValueCalled("macro_01_this_call"));
+  ObjCalled("steps").value = ValueCalled("steps").concat(ValueCalled("macro_01_steps"));
+}
+
+function PCUnableToObtain() {
+  ObjCalled("PCinfo").value = ValueCalled("PCinfo").concat("(unable to obtain)");
+}
 
 function KBCIURL() {
   let KBID = ValueCalled("KBID");
@@ -109,19 +206,24 @@ function CleanBomgar() {
   let PCname_start = "Computer Name:       ";
   let PCname_end = "Operating System:    ";
   let lastReboot = "";
+  let lastReboot_start = "Uptime:              ";
+  let lastReboot_end = "Required Skills:     ";
   let oldStep = "";
-  let newSteps = "";
   
   fullStats = ValueCalled("PCinfo");
   oldStep   = ValueCalled("steps");
   
   PCname = StringBetween(fullStats, PCname_start, PCname_end, -1);
+  lastReboot = StringBetween(fullStats, lastReboot_start, lastReboot_end, -1);
   
-  if(PCname !== "") ObjCalled("PCinfo").value = PCname;
+  if(PCname !== "")
+  {
+    ObjCalled("PCinfo").value = PCname;
+    ObjCalled("steps").value = oldStep.concat("\nLast Reboot = " + lastReboot);
+  }
 }
 
 function CompressCall() {
-  let compressionFact = "";
   let userID = "";
   let ticketID = "";
   let AppID = "";
@@ -133,21 +235,14 @@ function CompressCall() {
   
   let compNotes = "";
   
-  userID    = ValueCalled("UserID");
-  ticketID  = ValueCalled("Ticket");
-  AppID     = ValueCalled("App");
-  KBID      = ValueCalled("KBID");
-  TicketType= ValueCalled("TicketType");
-  callNotes = ValueCalled("this_call");
-  steps     = ValueCalled("steps");
-  PCname    = ValueCalled("PCinfo");
-  
-  compressionFact = compressionFact.concat(userID)
-    .concat(ticketID)
-    .concat(AppID)
-    .concat(KBID)
-    .concat(steps)
-    .concat(PCname);
+  userID     = ValueCalled("UserID");
+  ticketID   = ValueCalled("Ticket");
+  AppID      = ValueCalled("App");
+  KBID       = ValueCalled("KBID");
+  TicketType = ValueCalled("TicketType");
+  callNotes  = ValueCalled("this_call");
+  steps      = ValueCalled("steps");
+  PCname     = ValueCalled("PCinfo");
     
   compNotes = compNotes.concat("Issue Description (Including Error Message) = ")
     .concat("\n" + AppID)
@@ -165,8 +260,14 @@ function CompressCall() {
 
 function extraTicket() {
   let UserID = ValueCalled("UserID");
+  let phone = ValueCalled("phone");
+  let PCinfo = ValueCalled("PCinfo");
   moveToNextCall();
+  ObjCalled("phonearea").style.display = "block";
+  ObjCalled("phonebutton").classList.toggle("active");
   ObjCalled("UserID").value = UserID;
+  ObjCalled("phone").value = phone;
+  ObjCalled("PCinfo").value = PCinfo;
 }
 
 function moveToNextCall() {
@@ -201,17 +302,20 @@ function makeEscSubjLine() {
   esctick = ValueCalled("Ticket");
 
   switch (esctype){
+    case "___":
+      emailsubjp1 = "Escalation";
+      break;
     case "Standard":
       emailsubjp1 = "Escalation";
       break;
     case "Epic":
       emailsubjp1 = "Epic";
       break;
+    case "PeopleSoft":
+      emailsubjp1 = "PeopleSoft";
+      break;
     case "Possible Outage":
       emailsubjp1 = "Possible Outage";
-      break;
-    case "Affecting Patient Care":
-      emailsubjp1 = "___.Escalation";
       break;
     default:
       emailsubjp1 = "Unknown";
@@ -219,7 +323,7 @@ function makeEscSubjLine() {
   
   if (esctick !== "") emailsubjp2 = esctick;
   
-  if (esctype == "Affecting Patient Care") emailsubjp4 = " **Affecting Patient Care**";
+  if (ObjCalled("APCEsc").checked) emailsubjp4 = " **Affecting Patient Care**";
   
   emailsubj = emailsubj.concat(emailsubjp1)
     .concat(" - Ticket# ")
