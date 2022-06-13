@@ -10,10 +10,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - Add option for tag suppression
  - Update name to "Ticket"
 
-##### Location notation
- - Drop down for "Remote / Onsite"
- - Drop down for Facility and text box for More info
-
 ##### Formatting Button for "Follow-ups"
 
 ##### VDI output section
@@ -58,6 +54,10 @@ MRN =
  - "Next Call" > ⏭📞
  - "Extra Ticket" > ➕🎫(-)
  - "Copy Ticket" > ➕🎫(📄)
+
+##### Location notation
+ - Drop down for "Remote / Onsite"
+ - Drop down for Facility and text box for More info
 
 
 ---
