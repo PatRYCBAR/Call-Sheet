@@ -38,12 +38,10 @@ MRN =
  - Swap to another ticket
  - OR load a previous ticket's data
 
-##### Option to create button for just removing ticket number
-
 ##### Emojis to replace the buttons on top
-➕🎟(📝)
-➕🎟(-)
-⏭📞
+ - ➕🎟(📝)
+ - ➕🎟(-)
+ - ⏭📞
 
 ##### Send-up text
 
@@ -55,7 +53,11 @@ MRN =
 
 ### Most Recent Changes
 
-#### 5/26/2022
+#### 6/13/2022
+
+##### "Copy Ticket" button
+ - Option for "create" button that just removes ticket number
+
 
 ---
 ### Past Versions' Changes
