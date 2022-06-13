@@ -37,11 +37,7 @@ MRN =
 ##### Parallel Tickets
  - Swap to another ticket
  - OR load a previous ticket's data
-
-##### Emojis to replace the buttons on top
- - ➕🎟(📝)
- - ➕🎟(-)
- - ⏭📞
+ 
 
 ##### Send-up text
 
@@ -57,6 +53,11 @@ MRN =
 
 ##### "Copy Ticket" button
  - Option for "create" button that just removes ticket number
+
+##### Emojis to replace the buttons on top
+ - "Next Call" > ⏭📞
+ - "Extra Ticket" > ➕🎫(-)
+ - "Copy Ticket" > ➕🎫(📄)
 
 
 ---
