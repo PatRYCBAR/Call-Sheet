@@ -26,6 +26,30 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ##### Add quick-format for PC profile
  - `PC is = __.stationary desktop / WOW > ___.separate / combined tower-monitor`
 
+##### Add quick-format for PHI details
+```
+
+Patient name = 
+DOB = 
+MRN = 
+```
+
+##### Parallel Tickets
+ - Swap to another ticket
+ - OR load a previous ticket's data
+
+##### Option to create button for just removing ticket number
+
+##### Emojis to replace the buttons on top
+➕🎟(📝)
+➕🎟(-)
+⏭📞
+
+##### Send-up text
+
+##### Escalate for time
+
+##### Bring escalation text into the Troublshooting notes
 
 ---
 
