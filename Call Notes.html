@@ -52,6 +52,37 @@ input{
 </select></p>
 <textarea id="this_call" name="this_call" rows="10" cols="60"></textarea><br>
 
+<input list="RemoteOrNots" name="RemoteOrNot" id="RemoteOrNot" size="7">
+<datalist id="RemoteOrNots">
+  <option value="Onsite">
+  <option value="Remote">
+</datalist>
+<input list="facilities" name="facility" id="facility" size="13">
+<datalist id="facilities">
+  <option value="BELLEVUE">
+  <option value="CENTRAL OFFICE">
+  <option value="COLER">
+  <option value="CONEY">
+  <option value="CHS">
+  <option value="CUMBERLAND">
+  <option value="ELMHURST">
+  <option value="GOUVERNEUR">
+  <option value="HARLEM">
+  <option value="HJC">
+  <option value="JACOBI">
+  <option value="KINGS">
+  <option value="LINCOLN">
+  <option value="METROPOLITAN">
+  <option value="LINCOLN">
+  <option value="METROPOLITAN">
+  <option value="NCB">
+  <option value="QUEENS">
+  <option value="SEAVIEW">
+  <option value="WOODHULL">
+</datalist>
+<input type="text" id="LocationDetails" name="LocationDetails" size="25">
+<br>
+
 <label for="steps">Troubleshooting:</label><br>
 <textarea id="steps" name="steps" rows="8" cols="60"></textarea><br>
 
@@ -144,6 +175,9 @@ function ClearFields(){
   ObjCalled("KBID").value = "";
   ObjCalled("TicketType").value = "___ > ";
   ObjCalled("this_call").value = "";
+  ObjCalled("RemoteOrNot").value = "";
+  ObjCalled("facility").value = "";
+  ObjCalled("LocationDetails").value = "";
   ObjCalled("steps").value = "";
   ObjCalled("PCinfo").value = "";
   ObjCalled("ProcText").value = "";
@@ -179,7 +213,7 @@ function FollowupCall() {
   userID     = ValueCalled("UserID");
   ticketID   = ValueCalled("Ticket");
   phone      = ValueCalled("phone");
-    
+  
   compNotes = compNotes
     .concat("Caller = ___ (" + userID + ")")
     .concat("\nCallback = " + phone)
@@ -245,17 +279,23 @@ function CompressCall() {
   let callNotes = "";
   let steps = "";
   let PCname = "";
+  let RemoteOrNot = "";
+  let facility = "";
+  let LocationDetails = "";
   
   let compNotes = "";
   
-  userID     = ValueCalled("UserID");
-  ticketID   = ValueCalled("Ticket");
-  AppID      = ValueCalled("App");
-  KBID       = ValueCalled("KBID");
-  TicketType = ValueCalled("TicketType");
-  callNotes  = ValueCalled("this_call");
-  steps      = ValueCalled("steps");
-  PCname     = ValueCalled("PCinfo");
+  userID          = ValueCalled("UserID");
+  ticketID        = ValueCalled("Ticket");
+  AppID           = ValueCalled("App");
+  KBID            = ValueCalled("KBID");
+  TicketType      = ValueCalled("TicketType");
+  callNotes       = ValueCalled("this_call");
+  steps           = ValueCalled("steps");
+  PCname          = ValueCalled("PCinfo");
+  RemoteOrNot     = ValueCalled("RemoteOrNot");
+  facility        = ValueCalled("facility");
+  LocationDetails = ValueCalled("LocationDetails");
     
   compNotes = compNotes.concat("Issue Description (Including Error Message) = ")
     .concat("\n" + AppID)
@@ -265,6 +305,7 @@ function CompressCall() {
     .concat("\n\nPC Name = " + PCname)
     .concat("\nUsername = " + userID)
     .concat("\nKB ID = " + KBID)
+    .concat("\n\nLocation = " + RemoteOrNot + " / " + facility + " / " + LocationDetails)
     .concat("\n\n<MID_DOC>")
     .concat("\n> " + ticketID);
 
@@ -278,14 +319,22 @@ function copyTicket() {
 }
 
 function extraTicket() {
-  let UserID = ValueCalled("UserID");
-  let phone = ValueCalled("phone");
-  let PCinfo = ValueCalled("PCinfo");
+  let UserID          = ValueCalled("UserID");
+  let phone           = ValueCalled("phone");
+  let PCinfo          = ValueCalled("PCinfo");
+  let RemoteOrNot     = ValueCalled("RemoteOrNot");
+  let facility        = ValueCalled("facility");
+  let LocationDetails = ValueCalled("LocationDetails");
+  
   moveToNextCall();
   Uncollapse("phonebutton", "phonearea");
+  
   ObjCalled("UserID").value = UserID;
   ObjCalled("phone").value = phone;
   ObjCalled("PCinfo").value = PCinfo;
+  ObjCalled("RemoteOrNot").value = RemoteOrNot;
+  ObjCalled("facility").value = facility;
+  ObjCalled("LocationDetails").value = LocationDetails;
 }
 
 function moveToNextCall() {
@@ -343,6 +392,10 @@ function makeEscSubjLine() {
   }
   
   if (esctick !== "") emailsubjp2 = esctick;
+  
+  emailsubjp3 = ValueCalled("facility");
+  if (emailsubjp3 == "") emailsubjp3 = "___";
+  if (ValueCalled("RemoteOrNot") == "Remote") emailsubjp3 = "Remote / " + emailsubjp3;
   
   if (ObjCalled("APCEsc").checked) emailsubjp4 = " **Affecting Patient Care**";
   
