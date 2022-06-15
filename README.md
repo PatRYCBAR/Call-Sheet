@@ -10,19 +10,52 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - Add option for tag suppression
  - Update name to "Ticket"
 
+
 ##### Formatting Button for "Follow-ups"
+
 
 ##### VDI output section
  - input to PC section
  - leave PC name
  - append VDI format to end of notes
 
+
 ##### Add "OUTBOUND" and "CALL" under list of call types
 
-##### Add quick-format for PC profile
+
+##### Parallel Tickets
+ - Stick another ticket on the side
+ - Button in the top row with text box containing alt Ticket number
+ - Press a button to swap the active ticket in the collapsed spot.
+ - How to clear? Press "Next Call" and then swap and then "Next Call" again.
+
+
+##### Escalation Revamp
+
+###### Escalate for time
+
+###### Bring escalation text into the Troublshooting notes
+
+
+##### Make Macro-creator 2
+
+###### Send-up text
+
+###### Template for Chat message for AD Account reactivation
+```
+
+AD Account reactivation
+Can someone re-enable this account for me please?
+User ID = ___
+Facility = ___
+INC000000000
+Activation condition = ___.Active in PeopleSoft / Inactive in PeopleSoft, but IIQ has future start date
+```
+
+###### Add quick-format for PC profile
  - `PC is = __.stationary desktop / WOW > ___.separate / combined tower-monitor`
 
-##### Add quick-format for PHI details
+###### Add quick-format for PHI details
 ```
 
 Patient name = 
@@ -30,16 +63,6 @@ DOB =
 MRN = 
 ```
 
-##### Parallel Tickets
- - Swap to another ticket
- - OR load a previous ticket's data
- 
-
-##### Send-up text
-
-##### Escalate for time
-
-##### Bring escalation text into the Troublshooting notes
 
 ---
 
