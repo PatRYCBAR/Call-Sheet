@@ -13,6 +13,16 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 ##### Formatting Button for "Follow-ups"
 
+#### Button for just the subject
+
+#### Name field
+
+#### Call formatting
+
+#### Container for next ticket
+
+#### Epic questions
+
 
 ##### VDI output section
  - input to PC section
