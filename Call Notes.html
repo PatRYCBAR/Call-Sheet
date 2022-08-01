@@ -34,8 +34,10 @@ input{
 <label for="Ticket">Ticket:</label>
   <input type="text" id="Ticket" name="Ticket" size="40"><br>
 <label for="UserID">User ID:</label>
-  <input type="text" id="UserID" name="UserID"><button tabindex="1" onclick="ToCAPS()">ABC </button> <button tabindex="1" onclick="ToLower()">abc</button><button type="button" class="collapsible" style="width: 100px;" id="phonebutton">Phone</button>
+  <input type="text" id="UserID" name="UserID"><button tabindex="1" onclick="ToCAPS()">ABC </button> <button tabindex="1" onclick="ToLower()">abc</button><button type="button" class="collapsible" style="width: 100px;" id="phonebutton">Name/Phone</button>
 <div class="content" id="phonearea">
+<label for="FullName">Name:</label>
+<input type="text" id="FullName" name="FullName"><br>
 <label for="phone">Phone:</label><br>
 <textarea id="phone" name="phone" rows="2" cols="30"></textarea>
 </div><br>
@@ -44,7 +46,7 @@ input{
   <input tabindex="1" type="text" id="KBID" name="KBID">
   <button tabindex="1" 	onclick="KBCIURL()">CI</button><br>
 
-<p><label for="this_call">Call Notes </label> <select name="TicketType" id= "TicketType">
+<p><label for="this_call">Call Notes for </label> <select name="TicketType" id= "TicketType">
   <option value="___ > ">___ > </option>
   <option value="issue > ">issue > </option>
   <option value="question > ">question > </option>
@@ -168,6 +170,7 @@ window.addEventListener('beforeunload', (event) => {
 function ClearFields(){
   ObjCalled("UserID").value = "";
   ObjCalled("Ticket").value = "";
+  ObjCalled("FullName").value = "";
   ObjCalled("phone").value = "";
   Collapse ("phonebutton", "phonearea");
   ObjCalled("App").value = "";
@@ -205,16 +208,20 @@ Button Methods
 function FollowupCall() {
   let userID = "";
   let ticketID = "";
+  let FullName = "";
   let phone = "";
   
   let compNotes = "";
   
   userID     = ValueCalled("UserID");
   ticketID   = ValueCalled("Ticket");
+  FullName   = ValueCalled("FullName");
   phone      = ValueCalled("phone");
   
+  if (FullName == "") FullName = "___";
+  
   compNotes = compNotes
-    .concat("Caller = ___ (" + userID + ")")
+    .concat("Caller = " + FullName + " (" + userID + ")")
     .concat("\nCallback = " + phone)
     .concat("\nFor = " + ticketID);
 
@@ -319,6 +326,7 @@ function copyTicket() {
 
 function extraTicket() {
   let UserID          = ValueCalled("UserID");
+  let FullName        = ValueCalled("FullName");
   let phone           = ValueCalled("phone");
   let PCinfo          = ValueCalled("PCinfo");
   let RemoteOrNot     = ValueCalled("RemoteOrNot");
@@ -329,6 +337,7 @@ function extraTicket() {
   Uncollapse("phonebutton", "phonearea");
   
   ObjCalled("UserID").value = UserID;
+  ObjCalled("FullName").value = FullName;
   ObjCalled("phone").value = phone;
   ObjCalled("PCinfo").value = PCinfo;
   ObjCalled("RemoteOrNot").value = RemoteOrNot;
