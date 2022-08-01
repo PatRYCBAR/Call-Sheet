@@ -10,83 +10,16 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - Add option for tag suppression
  - Update name to "Ticket"
 
+#### Epic questions - part 2
+ - capture answers to logs
+ - fix variable names
+ - update logsto be more streamlined
 
 ##### Formatting Button for "Follow-ups"
 
 #### Button for just the subject
 
 #### Container for next ticket
-
-#### Epic questions
-```
-Issue / Request Description = ___
-Error Message = ___
-
-Is this inpatient or outpatient? = ___
-
-User ID = ___
-Job Title/Role = ___
-Department = ___
-Epic Template used = 
-___{
-Inpatient - ClinDoc [100017]
-Ambulatory [100001]
-
-Professional Billing [100026] 
-Hospital Billing [100015]
-Inpatient - Orders [100018]
-
-Anesthesia [100002]
-ASAP [100003]
-Cadence [100007]
-Grand Central [100000]
-HIM [100012]
-OPTIME [100022]
-Radiant [100027]
-Research [100030]
-Stork [100033]
-___}
-
-PC Name = ___
-
-
-*** Troubleshooting steps ***
-Result: ___.resolve  nonESD  in-progress
-___
-Did the user have access before? (if applicable) = ___
-Is this occurring for several patients in Epic? = ___
-Is this issue affecting several co-workers? = ___
-Have you restarted user's VDI session? (If applicable) = ___
-Screenshot of error / issue attached? = ___.yes
-____
-___.Was provided colleague with correct interface: ___
-___.Colleague had the following template: ___
-
----
-
-Ticket Reassignment = Tier 2
-Reason = technical / access per KB
-Escalation needed? = Y - per KB
-> Epic - Ticket# ___ (__)
-Priority Change = ___.P3 due to expressed urgency
-
----
-
-Patient Name = 
-MRN =   
-Patient DOB = 
-
-<MID_DOC>
-
----
-
-____
-User did not have this > advised user to speak to Epic Final Approver to have this template assigned to them.
-
-Final Approvers can be looked-up at this location: https://share.nychhc.org/sites/ProjectGo/gf/PGL/Epic Security/Forms/AllItems.aspx?RootFolder=/sites/ProjectGo/gf/PGL/Epic Security/Epic Final Approvers Lists
-
-<MID_DOC>
-```
 
 ##### VDI output section
  - input to PC section
@@ -148,6 +81,9 @@ MRN =
  - dedicated field to capture Full Name
  - updated Call formatting to incorporate this
 
+#### Epic questions - part 1
+ - created section to hold questionaire
+ - created button to utilize questionaire
 
 ---
 ### Past Versions' Changes
