@@ -6,6 +6,10 @@ input{
   padding: 5px;
 }
 
+.slim{
+  padding: 1px;
+}
+
 .collapsible {
   background-color: #f1f1f1;
   cursor: pointer;
@@ -84,7 +88,48 @@ input{
 <input type="text" id="LocationDetails" name="LocationDetails" size="25">
 <br>
 
-<label for="steps">Troubleshooting:</label><br>
+<label for="steps">Troubleshooting:</label><button type="button" class="collapsible" style="width: 250px;" id="macro_02_button">Questions for <input class="slim" list="macros_02" name="macro_02" id="facility" size="13" value="Epic"><datalist id="macros_02">
+  <option value="Epic">
+</datalist></button>
+<div class="content" id="macro_02_questions">
+  <label for="macro_02_a01" id="macro_02_q01">Is this inpatient or outpatient? = </label>
+  <input type="text" id="macro_02_a01" name="macro_02_a01"><br>
+  <label for="macro_02_a02" id="macro_02_q02">Job Title/Role = </label>
+  <input type="text" id="macro_02_a02" name="macro_02_a02"><br>
+  <label for="macro_02_a03" id="macro_02_q03">Department = </label>
+  <input type="text" id="macro_02_a03" name="macro_02_a03"><br>
+  <label for="macro_02_a04" id="macro_02_q04">Epic Template used = </label>
+  <input list="epic_templates" type="text" id="macro_02_a04" name="macro_02_a04"><br>
+  <label for="macro_02_a05" id="macro_02_q05">Did the user have access before? (if applicable) = </label>
+  <input type="text" id="macro_02_a05" name="macro_02_a05"><br>
+  <label for="macro_02_a06" id="macro_02_q06">Is this occurring for several patients in Epic? = </label>
+  <input type="text" id="macro_02_a06" name="macro_02_a06"><br>
+  <label for="macro_02_a07" id="macro_02_q07">Is this issue affecting several co-workers? = </label>
+  <input type="text" id="macro_02_a07" name="macro_02_a07"><br>
+  <label for="macro_02_a08" id="macro_02_q08">Have you restarted user's VDI session? (If applicable) = </label>
+  <input type="text" id="macro_02_a08" name="macro_02_a08"><br>
+  <label for="macro_02_a09" id="macro_02_q09">Screenshot of error / issue attached? = </label>
+  <input type="text" id="macro_02_a09" name="macro_02_a09"><br>
+  <datalist id="epic_templates">
+    <option value="Inpatient - ClinDoc [100017]">
+    <option value="Ambulatory [100001]">
+    <option value="---">
+    <option value="Professional Billing [100026]">
+    <option value="Hospital Billing [100015]">
+    <option value="Inpatient - Orders [100018]">
+    <option value="---">
+    <option value="Anesthesia [100002]">
+    <option value="ASAP [100003]">
+    <option value="Cadence [100007]">
+    <option value="Grand Central [100000]">
+    <option value="HIM [100012]">
+    <option value="OPTIME [100022]">
+    <option value="Radiant [100027]">
+    <option value="Research [100030]">
+    <option value="Stork [100033]">
+  </datalist>
+</div><br>
+
 <textarea id="steps" name="steps" rows="8" cols="60"></textarea><br>
 
 <label for="PCinfo">PC:</label>
@@ -92,7 +137,7 @@ input{
 
 
 <label for="ProcText">For Proc:</label>
-<button onclick="CompressCall()">Compress</button><button onclick="FollowupCall()">Call</button><br>
+<button onclick="CompressCall()">Compress</button><button onclick="FollowupCall()">Call</button><button onclick="EpicCall()">Epic</button><br>
 <textarea id="ProcText" name="ProcText" rows="3" cols="60"></textarea><br>
 
 
@@ -172,6 +217,7 @@ function ClearFields(){
   ObjCalled("Ticket").value = "";
   ObjCalled("FullName").value = "";
   ObjCalled("phone").value = "";
+  Collapse ("macro_02_button", "macro_02_questions");
   Collapse ("phonebutton", "phonearea");
   ObjCalled("App").value = "";
   ObjCalled("KBID").value = "";
@@ -185,6 +231,16 @@ function ClearFields(){
   ObjCalled("ProcText").value = "";
   ObjCalled("Escalations").value = "___";
   ObjCalled("APCEsc").checked = false;
+  ClearMacroQuestions();
+}
+
+function ClearMacroQuestions(){
+  let id = "";
+  for (i = 1; i <= 9; i++) {
+    id = "macro_02_a0";
+    id = id.concat("" + i);
+    ObjCalled(id).value = "";
+  }
 }
 
 function Collapse (buttonlabel, arealabel) {
@@ -204,6 +260,73 @@ function Uncollapse (buttonlabel, arealabel) {
 /******************
 Button Methods
 ******************/
+
+function EpicCall() {
+  let userID = "";
+  let ticketID = "";
+  let AppID = "";
+  let KBID = "";
+  let TicketType = "";
+  let callNotes = "";
+  let steps = "";
+  let PCname = "";
+  let RemoteOrNot = "";
+  let facility = "";
+  let LocationDetails = "";
+  let macro_02_a01 = "";
+  let macro_02_a02 = "";
+  let macro_02_a03 = "";
+  let macro_02_a04 = "";
+  let macro_02_a05 = "";
+  let macro_02_a06 = "";
+  let macro_02_a07 = "";
+  let macro_02_a08 = "";
+  let macro_02_a09 = "";
+  
+  let compNotes = "";
+  
+  userID          = ValueCalled("UserID");
+  ticketID        = ValueCalled("Ticket");
+  AppID           = ValueCalled("App");
+  KBID            = ValueCalled("KBID");
+  TicketType      = ValueCalled("TicketType");
+  callNotes       = ValueCalled("this_call");
+  steps           = ValueCalled("steps");
+  PCname          = ValueCalled("PCinfo");
+  RemoteOrNot     = ValueCalled("RemoteOrNot");
+  facility        = ValueCalled("facility");
+  LocationDetails = ValueCalled("LocationDetails");
+  macro_02_a01    = ValueCalled("macro_02_a01");
+  macro_02_a02    = ValueCalled("macro_02_a02");
+  macro_02_a03    = ValueCalled("macro_02_a03");
+  macro_02_a04    = ValueCalled("macro_02_a04");
+  macro_02_a05    = ValueCalled("macro_02_a05");
+  macro_02_a06    = ValueCalled("macro_02_a06");
+  macro_02_a07    = ValueCalled("macro_02_a07");
+  macro_02_a08    = ValueCalled("macro_02_a08");
+  macro_02_a09    = ValueCalled("macro_02_a09");
+  
+  compNotes = compNotes.concat("Issue / Request Description = ")
+    .concat("\n" + AppID)
+    .concat(" " + TicketType)
+    .concat(callNotes)
+    .concat("\n\nIs this inpatient or outpatient? = " + macro_02_a01)
+    .concat("\n\nDid the user have access before? (if applicable) = " + macro_02_a05)
+    .concat("\nIs this occurring for several patients in Epic? = " + macro_02_a06)
+    .concat("\nIs this issue affecting several co-workers? = " + macro_02_a07)
+    .concat("\nHave you restarted user's VDI session? (If applicable) = " + macro_02_a08)
+    .concat("\nScreenshot of error / issue attached? = " + macro_02_a09)
+    .concat("\n\nUsername = " + userID)
+    .concat("\nJob Title/Role = " + macro_02_a02)
+    .concat("\nDepartment = " + macro_02_a03)
+    .concat("\nEpic Template used = " + macro_02_a04)
+    .concat("\n\nPC Name = " + PCname)
+    .concat("\n\n*** Troubleshooting steps ***\n" + steps)
+    .concat("\n\n\nSending to Tier 2 per KB:")
+    .concat("\n" + getEscSubjLine());
+
+ObjCalled("ProcText").value = compNotes;
+}
 
 function FollowupCall() {
   let userID = "";
@@ -368,6 +491,10 @@ function logCall() {
 }
 
 function makeEscSubjLine() {
+  ObjCalled("ProcText").value =  getEscSubjLine();
+}
+
+function getEscSubjLine() {
   let emailsubj = "";
   let emailsubjp1 = "";
   let emailsubjp2 = "___";
@@ -414,7 +541,7 @@ function makeEscSubjLine() {
     .concat(emailsubjp3)
     .concat(")")
     .concat(emailsubjp4);
-  ObjCalled("ProcText").value =  emailsubj;
+  return emailsubj;
 }
 </script>
 
