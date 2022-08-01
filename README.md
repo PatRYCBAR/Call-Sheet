@@ -15,10 +15,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 #### Button for just the subject
 
-#### Name field
-
-#### Call formatting
-
 #### Container for next ticket
 
 #### Epic questions
@@ -146,6 +142,18 @@ MRN =
 
 ### Most Recent Changes
 
+#### 6/16/2022
+
+#### Name field
+ - dedicated field to capture Full Name
+ - updated Call formatting to incorporate this
+
+
+---
+### Past Versions' Changes
+---
+---
+
 #### 6/13/2022
 
 ##### "Copy Ticket" button
@@ -160,11 +168,6 @@ MRN =
  - Drop down for "Remote / Onsite"
  - Drop down for Facility and text box for More info
 
-
----
-### Past Versions' Changes
----
----
 #### 5/25/2022
 
 ##### Update "Extra ticket" to keep PC name also
