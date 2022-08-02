@@ -10,6 +10,11 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - Add option for tag suppression
  - Update name to "Ticket"
 
+#### Extra Info
+ - In Questions section
+ - Contains: Notes that go into next ticket
+ - Contains: Notes that get deleted
+
 #### Epic questions - part 2
  - capture answers to logs
  - fix variable names
