@@ -31,9 +31,21 @@ input{
 </head>
 <body>
 
+<!--
+/***********************
+*FORM - Top row buttons
+************************/
+-->
+
 <button onclick="moveToNextCall()"> _⏭ 📞_ </button>
   <button onclick="extraTicket()">➕🎫(-)</button>
   <button onclick="copyTicket()">➕🎫(📄)</button><br>
+
+<!--
+/******************
+*FORM - Basic info
+*******************/
+-->
 
 <label for="Ticket">Ticket:</label>
   <input type="text" id="Ticket" name="Ticket" size="40"><br>
@@ -50,6 +62,12 @@ input{
   <input tabindex="1" type="text" id="KBID" name="KBID">
   <button tabindex="1" 	onclick="KBCIURL()">CI</button><br>
 
+<!--
+/************************
+*FORM - Call Description
+*************************/
+-->
+
 <p><label for="this_call">Call Notes for </label> <select name="TicketType" id= "TicketType">
   <option value="___ > ">___ > </option>
   <option value="issue > ">issue > </option>
@@ -57,6 +75,12 @@ input{
   <option value="task > ">task > </option>
 </select></p>
 <textarea id="this_call" name="this_call" rows="10" cols="60"></textarea><br>
+
+<!--
+/************************
+*FORM - Location info
+*************************/
+-->
 
 <input list="RemoteOrNots" name="RemoteOrNot" id="RemoteOrNot" size="7">
 <datalist id="RemoteOrNots">
@@ -87,6 +111,12 @@ input{
 </datalist>
 <input type="text" id="LocationDetails" name="LocationDetails" size="25">
 <br>
+
+<!--
+/************************
+*FORM - Dynamic Form
+*************************/
+-->
 
 <label for="steps">Troubleshooting:</label><button type="button" class="collapsible" style="width: 250px;" id="macro_02_button">Questions for <input class="slim" list="macros_02" name="macro_02" id="facility" size="13" value="Epic"><datalist id="macros_02">
   <option value="Epic">
@@ -130,16 +160,38 @@ input{
   </datalist>
 </div><br>
 
+<!--
+/************************
+*FORM - Troubleshooting Space
+*************************/
+-->
+
 <textarea id="steps" name="steps" rows="8" cols="60"></textarea><br>
+
+<!--
+/************************
+*FORM - PC info
+*************************/
+-->
 
 <label for="PCinfo">PC:</label>
 <textarea id="PCinfo" name="PCinfo" rows="2" cols="30"></textarea><button onclick="CleanBomgar()">Bomgar</button><button onclick="PCUnableToObtain()">Unknown</button><br>
 
+<!--
+/************************
+*FORM - Print-out area
+*************************/
+-->
 
 <label for="ProcText">For Proc:</label>
 <button onclick="CompressCall()">Compress</button><button onclick="FollowupCall()">Call</button><button onclick="EpicCall()">Epic</button><br>
 <textarea id="ProcText" name="ProcText" rows="3" cols="60"></textarea><br>
 
+<!--
+/************************
+*FORM - Escalation
+*************************/
+-->
 
 <label for="Escalations">Escalation?</label>
 <select name="Escalations" id= "Escalations">
@@ -153,6 +205,12 @@ input{
 <button onclick="makeEscSubjLine()">Generate</button>
 <br>
 
+<!--
+/************************
+*FORM - Repeated Calls
+*************************/
+-->
+
 <button onclick="ApplyMacro01()">Apply</button><button type="button" class="collapsible" style="width: 400px;">Macro</button>
 <div class="content">
 <p><label for="macro_01_this_call">Call Notes </label><br>
@@ -161,6 +219,12 @@ input{
 <label for="macro_01_steps">Troubleshooting:</label><br>
 <textarea id="macro_01_steps" name="macro_01_steps" rows="8" cols="60"></textarea><br>
 </div>
+
+<!--
+/************************
+*FORM - Call Logs
+*************************/
+-->
 
 <p>---</p>
 
