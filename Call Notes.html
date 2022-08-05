@@ -256,6 +256,29 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+let DynamicFormItemType = {
+  Text : function() {
+    return "type=\"text\"";
+  },
+  List : function(listName) {
+    return "list=\"" + listName + "\" type=\"text\"";
+  }
+}
+
+class DynamicFormItem{
+  constructor(type, label, value) {
+    this.type = type;
+    this.label = label;
+    this.value = value;
+  }
+  
+  toHTML() {
+    let test = "<input type=\"text\" name=\"facility\" id=\"facility\" size=\"13\">";
+    return test;
+  }
+
+}
+
 /******************
 Utility Methods
 ******************/
