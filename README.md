@@ -79,6 +79,7 @@ MRN =
 #### 8/5/2022
 
 ##### Minor Visual clean-up
+ - You can see when the buttons are in-focus
  - Update "Compress" button name to "Ticket"
  - Update "Phone/Name" button name to "More Details"
 
