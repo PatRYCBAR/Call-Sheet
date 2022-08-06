@@ -16,7 +16,7 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 #### Epic questions - part 2
  - capture answers to logs
  - fix variable names
- - update logsto be more streamlined
+ - update logs to be more streamlined
 
 #### Formatting Button for "Follow-ups"
 
@@ -82,6 +82,8 @@ MRN =
  - You can see when the buttons are in-focus
  - Update "Compress" button name to "Ticket"
  - Update "Phone/Name" button name to "More Details"
+ - Update "CI" button label to "🔍CI" for clarity
+ - Cleaned-up drop-down & expand button for Dynamic Form Questions
 
 #### Small internal code changes
  - more comments to clarify code parts
