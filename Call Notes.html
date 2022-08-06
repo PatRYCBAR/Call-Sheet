@@ -18,7 +18,7 @@ input{
   outline: none;
 }
 
-.active, .collapsible:hover {
+.active, .collapsible:hover, .collapsible:focus {
   background-color: #d1d1d1;
 }
 
@@ -50,7 +50,7 @@ input{
 <label for="Ticket">Ticket:</label>
   <input type="text" id="Ticket" name="Ticket" size="40"><br>
 <label for="UserID">User ID:</label>
-  <input type="text" id="UserID" name="UserID"><button tabindex="1" onclick="ToCAPS()">ABC </button> <button tabindex="1" onclick="ToLower()">abc</button><button type="button" class="collapsible" style="width: 100px;" id="phonebutton">Name/Phone</button>
+  <input type="text" id="UserID" name="UserID"><button tabindex="1" onclick="ToCAPS()">ABC </button> <button tabindex="1" onclick="ToLower()">abc</button><button type="button" class="collapsible" style="width: 100px;" id="phonebutton">More Details</button>
 <div class="content" id="phonearea">
 <label for="FullName">Name:</label>
 <input type="text" id="FullName" name="FullName"><br>
@@ -143,7 +143,7 @@ input{
 -->
 
 <label for="ProcText">For Proc:</label>
-<button onclick="CompressCall()">Compress</button><button onclick="FollowupCall()">Call</button><button onclick="EpicCall()">Epic</button><br>
+<button onclick="CompressCall()">Ticket</button><button onclick="FollowupCall()">Call</button><button onclick="EpicCall()">Epic</button><br>
 <textarea id="ProcText" name="ProcText" rows="3" cols="60"></textarea><br>
 
 <!--
