@@ -52,15 +52,15 @@ input{
 <label for="UserID">User ID:</label>
   <input type="text" id="UserID" name="UserID"><button tabindex="1" onclick="ToCAPS()">ABC </button> <button tabindex="1" onclick="ToLower()">abc</button><button type="button" class="collapsible" style="width: 100px;" id="phonebutton">More Details</button>
 <div class="content" id="phonearea">
-<label for="FullName">Name:</label>
-<input type="text" id="FullName" name="FullName"><br>
-<label for="phone">Phone:</label><br>
-<textarea id="phone" name="phone" rows="2" cols="30"></textarea>
+  <label for="FullName">Name:</label>
+  <input type="text" id="FullName" name="FullName"><br>
+  <label for="phone">Phone:</label><br>
+  <textarea id="phone" name="phone" rows="2" cols="30"></textarea>
 </div><br>
 <label for="App">App:</label>
   <input type="text" id="App" name="App">
   <input tabindex="1" type="text" id="KBID" name="KBID">
-  <button tabindex="1" 	onclick="KBCIURL()">CI</button><br>
+  <button tabindex="1" 	onclick="KBCIURL()">🔍CI</button><br>
 
 <!--
 /************************
@@ -97,7 +97,7 @@ input{
 *************************/
 -->
 
-<label for="steps">Troubleshooting:</label><button type="button" class="collapsible" style="width: 250px;" id="macro_02_button">Questions for <input class="slim" list="macros_02" name="macro_02" id="facility" size="13" value="Epic"></button>
+<label for="steps">Troubleshooting(<input class="slim" list="macros_02" name="macro_02" id="facility" size="7" >):</label><button type="button" class="collapsible" style="width: 250px;" id="macro_02_button">More Questions</button>
 <div class="content" id="macro_02_questions">
   <label for="macro_02_a01" id="macro_02_q01">Is this inpatient or outpatient? = </label>
   <input type="text" id="macro_02_a01" name="macro_02_a01"><br>
@@ -634,6 +634,7 @@ function getEscSubjLine() {
 -->
 
 <datalist id="macros_02">
+  <option value="___">
   <option value="Epic">
 </datalist>
 
