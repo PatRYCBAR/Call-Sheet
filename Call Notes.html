@@ -88,27 +88,6 @@ input{
   <option value="Remote">
 </datalist>
 <input list="facilities" name="facility" id="facility" size="13">
-<datalist id="facilities">
-  <option value="BELLEVUE">
-  <option value="CENTRAL OFFICE">
-  <option value="COLER">
-  <option value="CONEY">
-  <option value="CHS">
-  <option value="CUMBERLAND">
-  <option value="ELMHURST">
-  <option value="GOUVERNEUR">
-  <option value="HARLEM">
-  <option value="HJC">
-  <option value="JACOBI">
-  <option value="KINGS">
-  <option value="LINCOLN">
-  <option value="MCKINNEY">
-  <option value="METROPOLITAN">
-  <option value="NCB">
-  <option value="QUEENS">
-  <option value="SEAVIEW">
-  <option value="WOODHULL">
-</datalist>
 <input type="text" id="LocationDetails" name="LocationDetails" size="25">
 <br>
 
@@ -118,9 +97,7 @@ input{
 *************************/
 -->
 
-<label for="steps">Troubleshooting:</label><button type="button" class="collapsible" style="width: 250px;" id="macro_02_button">Questions for <input class="slim" list="macros_02" name="macro_02" id="facility" size="13" value="Epic"><datalist id="macros_02">
-  <option value="Epic">
-</datalist></button>
+<label for="steps">Troubleshooting:</label><button type="button" class="collapsible" style="width: 250px;" id="macro_02_button">Questions for <input class="slim" list="macros_02" name="macro_02" id="facility" size="13" value="Epic"></button>
 <div class="content" id="macro_02_questions">
   <label for="macro_02_a01" id="macro_02_q01">Is this inpatient or outpatient? = </label>
   <input type="text" id="macro_02_a01" name="macro_02_a01"><br>
@@ -140,24 +117,6 @@ input{
   <input type="text" id="macro_02_a08" name="macro_02_a08"><br>
   <label for="macro_02_a09" id="macro_02_q09">Screenshot of error / issue attached? = </label>
   <input type="text" id="macro_02_a09" name="macro_02_a09"><br>
-  <datalist id="epic_templates">
-    <option value="Inpatient - ClinDoc [100017]">
-    <option value="Ambulatory [100001]">
-    <option value="---">
-    <option value="Professional Billing [100026]">
-    <option value="Hospital Billing [100015]">
-    <option value="Inpatient - Orders [100018]">
-    <option value="---">
-    <option value="Anesthesia [100002]">
-    <option value="ASAP [100003]">
-    <option value="Cadence [100007]">
-    <option value="Grand Central [100000]">
-    <option value="HIM [100012]">
-    <option value="OPTIME [100022]">
-    <option value="Radiant [100027]">
-    <option value="Research [100030]">
-    <option value="Stork [100033]">
-  </datalist>
 </div><br>
 
 <!--
@@ -636,6 +595,75 @@ function getEscSubjLine() {
 }
 </script>
 
+<!--
+/************************
+*DATA - LISTS
+*************************/
+-->
+
+
+<!--
+/************************
+*LIST: Epic Templates
+*************************/
+-->
+
+<datalist id="epic_templates">
+  <option value="Inpatient - ClinDoc [100017]">
+  <option value="Ambulatory [100001]">
+  <option value="---">
+  <option value="Professional Billing [100026]">
+  <option value="Hospital Billing [100015]">
+  <option value="Inpatient - Orders [100018]">
+  <option value="---">
+  <option value="Anesthesia [100002]">
+  <option value="ASAP [100003]">
+  <option value="Cadence [100007]">
+  <option value="Grand Central [100000]">
+  <option value="HIM [100012]">
+  <option value="OPTIME [100022]">
+  <option value="Radiant [100027]">
+  <option value="Research [100030]">
+  <option value="Stork [100033]">
+</datalist>
+
+<!--
+/************************
+*LIST: Dynamic Form Names
+*************************/
+-->
+
+<datalist id="macros_02">
+  <option value="Epic">
+</datalist>
+
+<!--
+/************************
+*LIST: Facilities
+*************************/
+-->
+
+<datalist id="facilities">
+  <option value="BELLEVUE">
+  <option value="CENTRAL OFFICE">
+  <option value="COLER">
+  <option value="CONEY">
+  <option value="CHS">
+  <option value="CUMBERLAND">
+  <option value="ELMHURST">
+  <option value="GOUVERNEUR">
+  <option value="HARLEM">
+  <option value="HJC">
+  <option value="JACOBI">
+  <option value="KINGS">
+  <option value="LINCOLN">
+  <option value="MCKINNEY">
+  <option value="METROPOLITAN">
+  <option value="NCB">
+  <option value="QUEENS">
+  <option value="SEAVIEW">
+  <option value="WOODHULL">
+</datalist>
 
 </body>
 </html>
