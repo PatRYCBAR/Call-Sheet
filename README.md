@@ -6,12 +6,10 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-##### Update "Compress" button
- - Add option for tag suppression
+##### Ticket Printing
  - Update name to "Ticket"
 
 #### Extra Info
- - In Questions section
  - Contains: Notes that go into next ticket
  - Contains: Notes that get deleted
 
@@ -20,11 +18,9 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - fix variable names
  - update logsto be more streamlined
 
-##### Formatting Button for "Follow-ups"
+#### Formatting Button for "Follow-ups"
 
 #### Button for just the subject
-
-#### Container for next ticket
 
 ##### VDI output section
  - input to PC section
@@ -80,6 +76,25 @@ MRN =
 
 ### Most Recent Changes
 
+#### 8/5/2022
+
+##### Minor Visual clean-up
+ - Update "Compress" button name to "Ticket"
+ - Update "Phone/Name" button name to "More Details"
+
+#### Small internal code changes
+ - more comments to clarify code parts
+ - migrating and condenseing datalists
+
+#### Dynamic Form for Questions
+ - groundwork laid-out
+
+
+---
+### Past Versions' Changes
+---
+---
+
 #### 6/16/2022
 
 #### Name field
@@ -89,11 +104,6 @@ MRN =
 #### Epic questions - part 1
  - created section to hold questionaire
  - created button to utilize questionaire
-
----
-### Past Versions' Changes
----
----
 
 #### 6/13/2022
 
