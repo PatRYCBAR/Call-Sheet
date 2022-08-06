@@ -266,15 +266,19 @@ let DynamicFormItemType = {
 }
 
 class DynamicFormItem{
-  constructor(type, label, value) {
+  constructor(id, type, label) {
+    this.id = id;
     this.type = type;
     this.label = label;
-    this.value = value;
+    this.value = "";
   }
   
   toHTML() {
-    let test = "<input type=\"text\" name=\"facility\" id=\"facility\" size=\"13\">";
-    return test;
+    let html_code = "";
+    html_code = html_code
+      .concat("<label for=\"" + this.id + "\" id=\"" + this.id + "_label\">" + this.label + "</label>")
+      .concat("<input " + this.type + " id=\"" + this.id + "\" name=\"" + this.id + "\"><br>");
+    return html_code;
   }
 
 }
