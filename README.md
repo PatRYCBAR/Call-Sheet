@@ -85,9 +85,11 @@ MRN =
  - Update "CI" button label to "🔍CI" for clarity
  - Cleaned-up drop-down & expand button for Dynamic Form Questions
 
-#### Small internal code changes
+#### Internal code changes
  - more comments to clarify code parts
  - migrating and condenseing datalists
+ - moving rarely-edited Utility methods to to end of code
+ - condensing repetitive code into methods
 
 #### Dynamic Form for Questions
  - groundwork laid-out
