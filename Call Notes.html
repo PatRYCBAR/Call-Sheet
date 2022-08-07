@@ -254,70 +254,6 @@ class DynamicFormItem{
 
 }
 
-/******************
-Utility Methods
-******************/
-
-function ObjCalled(inputID){
-  return document.getElementById(inputID);
-}
-
-function ValueCalled(inputID){
-  return ObjCalled(inputID).value;
-}
-
-function StringBetween(OriginalString, StartString, EndString, OffsetEnd){
-  return OriginalString.slice((OriginalString.indexOf(StartString) + StartString.length), (OriginalString.indexOf(EndString) + OffsetEnd));
-}
-
-window.addEventListener('beforeunload', (event) => {
-  event.returnValue = `Are you sure you want to leave?`;
-});
-
-function ClearFields(){
-  ObjCalled("UserID").value = "";
-  ObjCalled("Ticket").value = "";
-  ObjCalled("FullName").value = "";
-  ObjCalled("phone").value = "";
-  Collapse ("macro_02_button", "macro_02_questions");
-  Collapse ("phonebutton", "phonearea");
-  ObjCalled("App").value = "";
-  ObjCalled("KBID").value = "";
-  ObjCalled("TicketType").value = "___ > ";
-  ObjCalled("this_call").value = "";
-  ObjCalled("RemoteOrNot").value = "";
-  ObjCalled("facility").value = "";
-  ObjCalled("LocationDetails").value = "";
-  ObjCalled("steps").value = "";
-  ObjCalled("PCinfo").value = "";
-  ObjCalled("ProcText").value = "";
-  ObjCalled("Escalations").value = "___";
-  ObjCalled("APCEsc").checked = false;
-  ClearMacroQuestions();
-}
-
-function ClearMacroQuestions(){
-  let id = "";
-  for (i = 1; i <= 9; i++) {
-    id = "macro_02_a0";
-    id = id.concat("" + i);
-    ObjCalled(id).value = "";
-  }
-}
-
-function Collapse (buttonlabel, arealabel) {
-  if (ObjCalled(arealabel).style.display === "block") {
-    ObjCalled(arealabel).style.display = "none";
-    ObjCalled(buttonlabel).classList.toggle("active");
-  }
-}
-
-function Uncollapse (buttonlabel, arealabel) {
-  if (ObjCalled(arealabel).style.display != "block") {
-    ObjCalled(arealabel).style.display = "block";
-    ObjCalled(buttonlabel).classList.toggle("active");
-  }
-}
 
 /******************
 Button Methods
@@ -605,6 +541,73 @@ function getEscSubjLine() {
     .concat(emailsubjp4);
   return emailsubj;
 }
+
+
+/******************
+* Utility Methods
+*******************/
+
+function ObjCalled(inputID){
+  return document.getElementById(inputID);
+}
+
+function ValueCalled(inputID){
+  return ObjCalled(inputID).value;
+}
+
+function StringBetween(OriginalString, StartString, EndString, OffsetEnd){
+  return OriginalString.slice((OriginalString.indexOf(StartString) + StartString.length), (OriginalString.indexOf(EndString) + OffsetEnd));
+}
+
+window.addEventListener('beforeunload', (event) => {
+  event.returnValue = `Are you sure you want to leave?`;
+});
+
+function ClearFields(){
+  ObjCalled("UserID").value = "";
+  ObjCalled("Ticket").value = "";
+  ObjCalled("FullName").value = "";
+  ObjCalled("phone").value = "";
+  Collapse ("macro_02_button", "macro_02_questions");
+  Collapse ("phonebutton", "phonearea");
+  ObjCalled("App").value = "";
+  ObjCalled("KBID").value = "";
+  ObjCalled("TicketType").value = "___ > ";
+  ObjCalled("this_call").value = "";
+  ObjCalled("RemoteOrNot").value = "";
+  ObjCalled("facility").value = "";
+  ObjCalled("LocationDetails").value = "";
+  ObjCalled("steps").value = "";
+  ObjCalled("PCinfo").value = "";
+  ObjCalled("ProcText").value = "";
+  ObjCalled("Escalations").value = "___";
+  ObjCalled("APCEsc").checked = false;
+  ClearMacroQuestions();
+}
+
+function ClearMacroQuestions(){
+  let id = "";
+  for (i = 1; i <= 9; i++) {
+    id = "macro_02_a0";
+    id = id.concat("" + i);
+    ObjCalled(id).value = "";
+  }
+}
+
+function Collapse (buttonlabel, arealabel) {
+  if (ObjCalled(arealabel).style.display === "block") {
+    ObjCalled(arealabel).style.display = "none";
+    ObjCalled(buttonlabel).classList.toggle("active");
+  }
+}
+
+function Uncollapse (buttonlabel, arealabel) {
+  if (ObjCalled(arealabel).style.display != "block") {
+    ObjCalled(arealabel).style.display = "block";
+    ObjCalled(buttonlabel).classList.toggle("active");
+  }
+}
+
 </script>
 
 <!--
