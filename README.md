@@ -9,10 +9,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ##### Ticket Printing
  - Update name to "Ticket"
 
-#### Extra Info
- - Contains: Notes that go into next ticket
- - Contains: Notes that get deleted
-
 #### Epic questions - part 2
  - capture answers to logs
  - fix variable names
@@ -94,6 +90,9 @@ MRN =
 #### Dynamic Form for Questions
  - groundwork laid-out
 
+#### More Notes Area
+ - Contains: Notes that go into next ticket
+ - Contains: Notes that get deleted
 
 ---
 ### Past Versions' Changes
