@@ -87,8 +87,8 @@ MRN =
 
 #### Internal code changes
  - more comments to clarify code parts
- - migrating and condenseing datalists
- - moving rarely-edited Utility methods to to end of code
+ - re-organized & categorized all methods
+ - migrating and condensing datalists
  - condensing repetitive code into methods
 
 #### Dynamic Form for Questions
