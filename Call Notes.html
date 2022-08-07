@@ -208,9 +208,18 @@ input{
 
 <script>
 
-/******************
-Intialization
-******************/
+/************************
+* SCRIPTING
+*************************/
+
+
+/***************************
+* SCRIPTING - INITIALIZATION
+****************************/
+
+window.addEventListener('beforeunload', (event) => {
+  event.returnValue = `Are you sure you want to leave?`;
+});
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -255,9 +264,170 @@ class DynamicFormItem{
 }
 
 
-/******************
-Button Methods
-******************/
+
+
+/***************************
+* SCRIPTING - METHODS
+****************************/
+
+
+/***************************
+* METHODS - On Button Press
+****************************/
+
+
+/***************************
+* On Button Press (top row)
+****************************/
+
+function moveToNextCall() {
+  logCall();
+  ClearFields();
+}
+
+function extraTicket() {
+  let savedData = holdInMap([
+    "UserID",
+    "FullName",
+    "phone",
+    "PCinfo",
+    "RemoteOrNot",
+    "facility",
+    "LocationDetails"
+  ]);
+  
+  moveToNextCall();
+  Uncollapse("phonebutton", "phonearea");
+  
+  loadHeldValues(savedData);
+}
+
+function copyTicket() {
+  Uncollapse("phonebutton", "phonearea");
+  logCall();
+  ObjCalled("Ticket").value = "";
+}
+
+
+/*****************************
+* On Button Press (basic info)
+******************************/
+
+function ToCAPS() {
+  ObjCalled("UserID").value = ValueCalled("UserID").toUpperCase();
+  ObjCalled("UserID").focus();
+}
+
+function ToLower() {
+  ObjCalled("UserID").value = ValueCalled("UserID").toLowerCase();
+  ObjCalled("UserID").focus();
+}
+
+function KBCIURL() {
+  let KBID = ValueCalled("KBID");
+  let KBCIsite = "http://esdwiki.nychhc.org/index.php?title=Special:Search&search=" + KBID + "#ServiceNow_CI";
+  window.open(KBCIsite);
+}
+
+/***********************************
+* On Button Press (PC info)
+************************************/
+
+function CleanBomgar() {
+  let fullStats = "";
+  let PCname = "";
+  let PCname_start = "Computer Name:       ";
+  let PCname_end = "Operating System:    ";
+  let lastReboot = "";
+  let lastReboot_start = "Uptime:              ";
+  let lastReboot_end = "Required Skills:     ";
+  let oldStep = "";
+  
+  fullStats = ValueCalled("PCinfo");
+  oldStep   = ValueCalled("steps");
+  
+  PCname = StringBetween(fullStats, PCname_start, PCname_end, -1);
+  lastReboot = StringBetween(fullStats, lastReboot_start, lastReboot_end, -1);
+  
+  if(PCname !== "")
+  {
+    ObjCalled("PCinfo").value = PCname;
+    ObjCalled("steps").value = oldStep.concat("\nLast Reboot = " + lastReboot);
+  }
+}
+
+function PCUnableToObtain() {
+  ObjCalled("PCinfo").value = ValueCalled("PCinfo").concat("(unable to obtain)");
+}
+
+/***********************************
+* On Button Press (print-out area)
+************************************/
+
+function CompressCall() {
+  let userID = "";
+  let ticketID = "";
+  let AppID = "";
+  let KBID = "";
+  let TicketType = "";
+  let callNotes = "";
+  let steps = "";
+  let PCname = "";
+  let RemoteOrNot = "";
+  let facility = "";
+  let LocationDetails = "";
+  
+  let compNotes = "";
+  
+  userID          = ValueCalled("UserID");
+  ticketID        = ValueCalled("Ticket");
+  AppID           = ValueCalled("App");
+  KBID            = ValueCalled("KBID");
+  TicketType      = ValueCalled("TicketType");
+  callNotes       = ValueCalled("this_call");
+  steps           = ValueCalled("steps");
+  PCname          = ValueCalled("PCinfo");
+  RemoteOrNot     = ValueCalled("RemoteOrNot");
+  facility        = ValueCalled("facility");
+  LocationDetails = ValueCalled("LocationDetails");
+    
+  compNotes = compNotes.concat("Issue Description (Including Error Message) = ")
+    .concat("\n" + AppID)
+    .concat(" " + TicketType)
+    .concat(callNotes)
+    .concat("\n\nESD Troubleshooting = \n" + steps)
+    .concat("\n\nPC Name = " + PCname)
+    .concat("\nUsername = " + userID)
+    .concat("\nKB ID = " + KBID)
+    .concat("\n\nLocation = " + RemoteOrNot + " / " + facility + " / " + LocationDetails)
+    .concat("\n\n<MID_DOC>")
+    .concat("\n> " + ticketID);
+
+  ObjCalled("ProcText").value = compNotes;  
+}
+
+function FollowupCall() {
+  let userID = "";
+  let ticketID = "";
+  let FullName = "";
+  let phone = "";
+  
+  let compNotes = "";
+  
+  userID     = ValueCalled("UserID");
+  ticketID   = ValueCalled("Ticket");
+  FullName   = ValueCalled("FullName");
+  phone      = ValueCalled("phone");
+  
+  if (FullName == "") FullName = "___";
+  
+  compNotes = compNotes
+    .concat("Caller = " + FullName + " (" + userID + ")")
+    .concat("\nCallback = " + phone)
+    .concat("\nFor = " + ticketID);
+
+  ObjCalled("ProcText").value = compNotes;
+}
 
 function EpicCall() {
   let userID = "";
@@ -323,149 +493,30 @@ function EpicCall() {
     .concat("\n\n\nSending to Tier 2 per KB:")
     .concat("\n" + getEscSubjLine());
 
-ObjCalled("ProcText").value = compNotes;
-}
-
-function FollowupCall() {
-  let userID = "";
-  let ticketID = "";
-  let FullName = "";
-  let phone = "";
-  
-  let compNotes = "";
-  
-  userID     = ValueCalled("UserID");
-  ticketID   = ValueCalled("Ticket");
-  FullName   = ValueCalled("FullName");
-  phone      = ValueCalled("phone");
-  
-  if (FullName == "") FullName = "___";
-  
-  compNotes = compNotes
-    .concat("Caller = " + FullName + " (" + userID + ")")
-    .concat("\nCallback = " + phone)
-    .concat("\nFor = " + ticketID);
-
   ObjCalled("ProcText").value = compNotes;
 }
 
-function ToCAPS() {
-  ObjCalled("UserID").value = ValueCalled("UserID").toUpperCase();
-  ObjCalled("UserID").focus();
+/***********************************
+* On Button Press (escalation)
+************************************/
+
+function makeEscSubjLine() {
+  ObjCalled("ProcText").value =  getEscSubjLine();
 }
 
-function ToLower() {
-  ObjCalled("UserID").value = ValueCalled("UserID").toLowerCase();
-  ObjCalled("UserID").focus();
-}
+/*******************************************
+* On Button Press (macro for repeated calls)
+********************************************/
 
 function ApplyMacro01() {
   ObjCalled("this_call").value = ValueCalled("this_call").concat(ValueCalled("macro_01_this_call"));
   ObjCalled("steps").value = ValueCalled("steps").concat(ValueCalled("macro_01_steps"));
 }
 
-function PCUnableToObtain() {
-  ObjCalled("PCinfo").value = ValueCalled("PCinfo").concat("(unable to obtain)");
-}
 
-function KBCIURL() {
-  let KBID = ValueCalled("KBID");
-  let KBCIsite = "http://esdwiki.nychhc.org/index.php?title=Special:Search&search=" + KBID + "#ServiceNow_CI";
-  window.open(KBCIsite);
-}
-
-function CleanBomgar() {
-  let fullStats = "";
-  let PCname = "";
-  let PCname_start = "Computer Name:       ";
-  let PCname_end = "Operating System:    ";
-  let lastReboot = "";
-  let lastReboot_start = "Uptime:              ";
-  let lastReboot_end = "Required Skills:     ";
-  let oldStep = "";
-  
-  fullStats = ValueCalled("PCinfo");
-  oldStep   = ValueCalled("steps");
-  
-  PCname = StringBetween(fullStats, PCname_start, PCname_end, -1);
-  lastReboot = StringBetween(fullStats, lastReboot_start, lastReboot_end, -1);
-  
-  if(PCname !== "")
-  {
-    ObjCalled("PCinfo").value = PCname;
-    ObjCalled("steps").value = oldStep.concat("\nLast Reboot = " + lastReboot);
-  }
-}
-
-function CompressCall() {
-  let userID = "";
-  let ticketID = "";
-  let AppID = "";
-  let KBID = "";
-  let TicketType = "";
-  let callNotes = "";
-  let steps = "";
-  let PCname = "";
-  let RemoteOrNot = "";
-  let facility = "";
-  let LocationDetails = "";
-  
-  let compNotes = "";
-  
-  userID          = ValueCalled("UserID");
-  ticketID        = ValueCalled("Ticket");
-  AppID           = ValueCalled("App");
-  KBID            = ValueCalled("KBID");
-  TicketType      = ValueCalled("TicketType");
-  callNotes       = ValueCalled("this_call");
-  steps           = ValueCalled("steps");
-  PCname          = ValueCalled("PCinfo");
-  RemoteOrNot     = ValueCalled("RemoteOrNot");
-  facility        = ValueCalled("facility");
-  LocationDetails = ValueCalled("LocationDetails");
-    
-  compNotes = compNotes.concat("Issue Description (Including Error Message) = ")
-    .concat("\n" + AppID)
-    .concat(" " + TicketType)
-    .concat(callNotes)
-    .concat("\n\nESD Troubleshooting = \n" + steps)
-    .concat("\n\nPC Name = " + PCname)
-    .concat("\nUsername = " + userID)
-    .concat("\nKB ID = " + KBID)
-    .concat("\n\nLocation = " + RemoteOrNot + " / " + facility + " / " + LocationDetails)
-    .concat("\n\n<MID_DOC>")
-    .concat("\n> " + ticketID);
-
-  ObjCalled("ProcText").value = compNotes;  
-}
-
-function copyTicket() {
-  Uncollapse("phonebutton", "phonearea");
-  logCall();
-  ObjCalled("Ticket").value = "";
-}
-
-function extraTicket() {
-  let savedData = holdInMap([
-    "UserID",
-    "FullName",
-    "phone",
-    "PCinfo",
-    "RemoteOrNot",
-    "facility",
-    "LocationDetails"
-  ]);
-  
-  moveToNextCall();
-  Uncollapse("phonebutton", "phonearea");
-  
-  loadHeldValues(savedData);
-}
-
-function moveToNextCall() {
-  logCall();
-  ClearFields();
-}
+/*********************************
+* METHODS - Form Data Manipulation
+**********************************/
   
 function logCall() {
   let logaddition = "";
@@ -482,10 +533,6 @@ function logCall() {
   newlog = newlog.concat(currentlog);
   
   ObjCalled("call_log").value = newlog;
-}
-
-function makeEscSubjLine() {
-  ObjCalled("ProcText").value =  getEscSubjLine();
 }
 
 function getEscSubjLine() {
@@ -538,27 +585,6 @@ function getEscSubjLine() {
   return emailsubj;
 }
 
-
-/******************
-* Utility Methods
-*******************/
-
-function ObjCalled(inputID){
-  return document.getElementById(inputID);
-}
-
-function ValueCalled(inputID){
-  return ObjCalled(inputID).value;
-}
-
-function StringBetween(OriginalString, StartString, EndString, OffsetEnd){
-  return OriginalString.slice((OriginalString.indexOf(StartString) + StartString.length), (OriginalString.indexOf(EndString) + OffsetEnd));
-}
-
-window.addEventListener('beforeunload', (event) => {
-  event.returnValue = `Are you sure you want to leave?`;
-});
-
 function ClearFields(){
   ObjCalled("UserID").value = "";
   ObjCalled("Ticket").value = "";
@@ -590,6 +616,23 @@ function ClearMacroQuestions(){
   }
 }
 
+
+/*********************************
+* METHODS - General Utility
+**********************************/
+
+function ObjCalled(inputID){
+  return document.getElementById(inputID);
+}
+
+function ValueCalled(inputID){
+  return ObjCalled(inputID).value;
+}
+
+function StringBetween(OriginalString, StartString, EndString, OffsetEnd){
+  return OriginalString.slice((OriginalString.indexOf(StartString) + StartString.length), (OriginalString.indexOf(EndString) + OffsetEnd));
+}
+
 function Collapse (buttonlabel, arealabel) {
   if (ObjCalled(arealabel).style.display === "block") {
     ObjCalled(arealabel).style.display = "none";
@@ -604,7 +647,6 @@ function Uncollapse (buttonlabel, arealabel) {
   }
 }
 
-///*
 function holdInMap(arrayOfIDs) {
   let savedOnHold = new Map();
   
@@ -614,8 +656,6 @@ function holdInMap(arrayOfIDs) {
   
   return savedOnHold;
 }
-//*/
-
 
 function loadHeldValues(savedOnHold){
   savedOnHold.forEach((value, key) => {
@@ -628,14 +668,14 @@ function loadHeldValues(savedOnHold){
 
 <!--
 /************************
-*DATA - LISTS
+* DATA - LISTS
 *************************/
 -->
 
 
 <!--
 /************************
-*LIST: Epic Templates
+* LIST: Epic Templates
 *************************/
 -->
 
@@ -660,7 +700,7 @@ function loadHeldValues(savedOnHold){
 
 <!--
 /************************
-*LIST: Dynamic Form Names
+* LIST: Dynamic Form Names
 *************************/
 -->
 
@@ -671,7 +711,7 @@ function loadHeldValues(savedOnHold){
 
 <!--
 /************************
-*LIST: Facilities
+* LIST: Facilities
 *************************/
 -->
 
