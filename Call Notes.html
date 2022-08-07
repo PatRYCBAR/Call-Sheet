@@ -377,7 +377,7 @@ function CompressCall() {
   let facility = "";
   let LocationDetails = "";
   
-  let compNotes = "";
+  let compNotes = "--error--";
   
   userID          = ValueCalled("UserID");
   ticketID        = ValueCalled("Ticket");
@@ -390,18 +390,25 @@ function CompressCall() {
   RemoteOrNot     = ValueCalled("RemoteOrNot");
   facility        = ValueCalled("facility");
   LocationDetails = ValueCalled("LocationDetails");
-    
-  compNotes = compNotes.concat("Issue Description (Including Error Message) = ")
-    .concat("\n" + AppID)
-    .concat(" " + TicketType)
-    .concat(callNotes)
-    .concat("\n\nESD Troubleshooting = \n" + steps)
-    .concat("\n\nPC Name = " + PCname)
-    .concat("\nUsername = " + userID)
-    .concat("\nKB ID = " + KBID)
-    .concat("\n\nLocation = " + RemoteOrNot + " / " + facility + " / " + LocationDetails)
-    .concat("\n\n<MID_DOC>")
-    .concat("\n> " + ticketID);
+  
+  
+  compNotes = printByLine([
+    "Issue Description (Including Error Message) = ",
+    AppID + " " + TicketType + callNotes,
+    "",
+    "ESD Troubleshooting =",
+    steps,
+    "",
+    "PC Name = " + PCname,
+    "Username = " + userID,
+    "KB ID = " + KBID,
+    "",
+    "Location = " + RemoteOrNot + " / " + facility + " / " + LocationDetails,
+    "",
+    "<MID_DOC>",
+    "> " + ticketID
+  ]);
+  
 
   ObjCalled("ProcText").value = compNotes;  
 }
@@ -412,7 +419,7 @@ function FollowupCall() {
   let FullName = "";
   let phone = "";
   
-  let compNotes = "";
+  let compNotes = "--error--";
   
   userID     = ValueCalled("UserID");
   ticketID   = ValueCalled("Ticket");
@@ -421,10 +428,11 @@ function FollowupCall() {
   
   if (FullName == "") FullName = "___";
   
-  compNotes = compNotes
-    .concat("Caller = " + FullName + " (" + userID + ")")
-    .concat("\nCallback = " + phone)
-    .concat("\nFor = " + ticketID);
+  compNotes = printByLine([
+    "Caller = " + FullName + " (" + userID + ")",
+    "Callback = " + phone,
+    "For = " + ticketID
+  ]);
 
   ObjCalled("ProcText").value = compNotes;
 }
@@ -546,26 +554,17 @@ function getEscSubjLine() {
   
   esctype = ValueCalled("Escalations");
   esctick = ValueCalled("Ticket");
-
-  switch (esctype){
-    case "___":
-      emailsubjp1 = "Escalation";
-      break;
-    case "Standard":
-      emailsubjp1 = "Escalation";
-      break;
-    case "Epic":
-      emailsubjp1 = "Epic";
-      break;
-    case "PeopleSoft":
-      emailsubjp1 = "PeopleSoft";
-      break;
-    case "Possible Outage":
-      emailsubjp1 = "Possible Outage";
-      break;
-    default:
-      emailsubjp1 = "Unknown";
-  }
+  
+  let esctypeTranslator = new Map([
+    ["___","Escalation"],
+    ["Standard","Escalation"],
+    ["Epic","Epic"],
+    ["PeopleSoft","PeopleSoft"],
+    ["Possible Outage","Possible Outage"]
+  ]);
+  
+  emailsubjp1 = esctypeTranslator.get(esctype);
+  
   
   if (esctick !== "") emailsubjp2 = esctick;
   
@@ -661,6 +660,16 @@ function loadHeldValues(savedOnHold){
   savedOnHold.forEach((value, key) => {
     ObjCalled(key).value = value;
   });
+}
+
+function printByLine(arrayOfStringsByLine){
+  let printOut = "";
+  
+  arrayOfStringsByLine.forEach((value, index, array) => {
+    printOut = printOut.concat("" + value + "\n");
+  });
+  
+  return printOut;
 }
 
 
