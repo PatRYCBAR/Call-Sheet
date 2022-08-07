@@ -33,7 +33,7 @@ input{
 
 <!--
 /***********************
-*FORM - Top row buttons
+* FORM - Top row buttons
 ************************/
 -->
 
@@ -43,7 +43,7 @@ input{
 
 <!--
 /******************
-*FORM - Basic info
+* FORM - Basic info
 *******************/
 -->
 
@@ -64,7 +64,7 @@ input{
 
 <!--
 /************************
-*FORM - Call Description
+* FORM - Call Description
 *************************/
 -->
 
@@ -75,7 +75,6 @@ input{
   <option value="question > ">question > </option>
   <option value="task > ">task > </option>
 </select>
-<!--
 <button type="button" class="collapsible" style="width: 250px;" id="more_notes_button">More Notes</button>
 <div class="content" id="more_notes">
   <label for="temp_info">Temp:</label>
@@ -84,13 +83,12 @@ input{
     <textarea id="next_ticket_notes" name="next_ticket_notes" rows="4" cols="60"></textarea><br>
   This Ticket's Notes:
 </div>
--->
 <br>
 <textarea id="this_call" name="this_call" rows="10" cols="60"></textarea><br>
 
 <!--
 /************************
-*FORM - Location info
+* FORM - Location info
 *************************/
 -->
 
@@ -105,7 +103,7 @@ input{
 
 <!--
 /************************
-*FORM - Dynamic Form
+* FORM - Dynamic Form
 *************************/
 -->
 
@@ -132,16 +130,16 @@ input{
 </div><br>
 
 <!--
-/************************
-*FORM - Troubleshooting Space
-*************************/
+/*****************************
+* FORM - Troubleshooting Space
+******************************/
 -->
 
 <textarea id="steps" name="steps" rows="8" cols="60"></textarea><br>
 
 <!--
 /************************
-*FORM - PC info
+* FORM - PC info
 *************************/
 -->
 
@@ -150,7 +148,7 @@ input{
 
 <!--
 /************************
-*FORM - Print-out area
+* FORM - Print-out area
 *************************/
 -->
 
@@ -160,7 +158,7 @@ input{
 
 <!--
 /************************
-*FORM - Escalation
+* FORM - Escalation
 *************************/
 -->
 
@@ -177,9 +175,9 @@ input{
 <br>
 
 <!--
-/*******************************
-*FORM - Macro for Repeated Calls
-********************************/
+/********************************
+* FORM - Macro for Repeated Calls
+*********************************/
 -->
 
 <button onclick="ApplyMacro01()">Apply</button><button type="button" class="collapsible" style="width: 400px;">Macro</button>
@@ -193,7 +191,7 @@ input{
 
 <!--
 /************************
-*FORM - Call Logs
+* FORM - Call Logs
 *************************/
 -->
 
@@ -290,6 +288,8 @@ function extraTicket() {
     "UserID",
     "FullName",
     "phone",
+    "temp_info",
+    "next_ticket_notes",
     "PCinfo",
     "RemoteOrNot",
     "facility",
@@ -298,6 +298,10 @@ function extraTicket() {
   
   moveToNextCall();
   Uncollapse("phonebutton", "phonearea");
+  if(savedData.get("temp_info") != "") Uncollapse("more_notes_button", "more_notes");
+  
+  savedData.set("this_call",savedData.get("next_ticket_notes"));
+  savedData.set("next_ticket_notes","");
   
   loadHeldValues(savedData);
 }
@@ -590,10 +594,13 @@ function ClearFields(){
   ObjCalled("FullName").value = "";
   ObjCalled("phone").value = "";
   Collapse ("macro_02_button", "macro_02_questions");
+  Collapse ("more_notes_button", "more_notes");
   Collapse ("phonebutton", "phonearea");
   ObjCalled("App").value = "";
   ObjCalled("KBID").value = "";
   ObjCalled("TicketType").value = "___ > ";
+  ObjCalled("temp_info").value = "";
+  ObjCalled("next_ticket_notes").value = "";
   ObjCalled("this_call").value = "";
   ObjCalled("RemoteOrNot").value = "";
   ObjCalled("facility").value = "";
