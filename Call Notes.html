@@ -446,24 +446,20 @@ function copyTicket() {
 }
 
 function extraTicket() {
-  let UserID          = ValueCalled("UserID");
-  let FullName        = ValueCalled("FullName");
-  let phone           = ValueCalled("phone");
-  let PCinfo          = ValueCalled("PCinfo");
-  let RemoteOrNot     = ValueCalled("RemoteOrNot");
-  let facility        = ValueCalled("facility");
-  let LocationDetails = ValueCalled("LocationDetails");
+  let savedData = holdInMap([
+    "UserID",
+    "FullName",
+    "phone",
+    "PCinfo",
+    "RemoteOrNot",
+    "facility",
+    "LocationDetails"
+  ]);
   
   moveToNextCall();
   Uncollapse("phonebutton", "phonearea");
   
-  ObjCalled("UserID").value = UserID;
-  ObjCalled("FullName").value = FullName;
-  ObjCalled("phone").value = phone;
-  ObjCalled("PCinfo").value = PCinfo;
-  ObjCalled("RemoteOrNot").value = RemoteOrNot;
-  ObjCalled("facility").value = facility;
-  ObjCalled("LocationDetails").value = LocationDetails;
+  loadHeldValues(savedData);
 }
 
 function moveToNextCall() {
@@ -607,6 +603,26 @@ function Uncollapse (buttonlabel, arealabel) {
     ObjCalled(buttonlabel).classList.toggle("active");
   }
 }
+
+///*
+function holdInMap(arrayOfIDs) {
+  let savedOnHold = new Map();
+  
+  arrayOfIDs.forEach((value, index, array) => {
+    savedOnHold.set(value, ValueCalled(value));
+  });
+  
+  return savedOnHold;
+}
+//*/
+
+
+function loadHeldValues(savedOnHold){
+  savedOnHold.forEach((value, key) => {
+    ObjCalled(key).value = value;
+  });
+}
+
 
 </script>
 
