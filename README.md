@@ -80,6 +80,7 @@ MRN =
  - Update "Phone/Name" button name to "More Details"
  - Update "CI" button label to "🔍CI" for clarity
  - Cleaned-up drop-down & expand button for Dynamic Form Questions
+ - Visual update for drop-downs
 
 #### Internal code changes
  - more comments to clarify code parts
