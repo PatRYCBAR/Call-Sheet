@@ -81,6 +81,7 @@ MRN =
  - Update "CI" button label to "🔍CI" for clarity
  - Cleaned-up drop-down & expand button for Dynamic Form Questions
  - Visual update for drop-downs
+ - Skipping Location fields in tabbing & increasing spacing for some boxes
 
 #### Internal code changes
  - more comments to clarify code parts
