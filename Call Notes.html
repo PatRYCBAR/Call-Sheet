@@ -684,11 +684,13 @@ let DynamicFormItemType = {
 }
 
 class DynamicFormItem{
-  constructor(id, type, label) {
+  constructor(id, type, label, value) {
     this.id = id;
     this.type = type;
     this.label = label;
-    this.value = "";
+    
+    if(value == undefined) this.value = "";
+    else this.value = value;
   }
   
   toHTML() {
@@ -699,6 +701,45 @@ class DynamicFormItem{
     return html_code;
   }
 
+}
+
+class DynamicForm{
+  constructor(formName, arrayOfFormItemParams){
+    this.formName = formName;
+    
+    if (arrayOfFormItemParams == undefined){
+      this.dynamicFormItems = new Map();
+    }
+    else{
+      let arrayOfFormItems = null;
+      
+      function createFormItem (value, index, array){
+        return new DynamicFormItem("dyn_form_" + this.formName + "_q" + index, value[0], value[1], value[2]);
+      }
+      
+      function prepFormItemForMap (value, index, array){
+        return [value.id, value];
+      }
+      
+      arrayOfFormItems = arrayOfFormItemParams.Map(creatFormItem);
+      
+      this.dynamicFormItems = new Map(arrayOfFormItems.Map(prepFormItemForMap));
+      
+      
+    }
+  }
+  
+  toHTML(){
+    let HTMLoutput = "";
+    
+    function compileHTML(value, key){
+      HTMLoutput += value.toHTML();
+    }
+    
+    HTMLoutput = this.dynamicFormItems.forEach(compileHTML);
+    
+    return HTMLoutput;
+  }
 }
 
 
