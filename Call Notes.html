@@ -7,7 +7,7 @@ input{
 }
 
 .slim{
-  padding: 1px;
+  padding: 3px;
 }
 
 .collapsible {
@@ -33,6 +33,16 @@ input{
   border-color: #c1c1f9;
   border-left-style: solid;
 }
+
+div {
+  margin-bottom: 0px;
+}
+
+.nothing {
+  height: 0px;
+  font-size: 0px;
+}
+
 </style>
 </head>
 <body>
@@ -62,7 +72,7 @@ input{
   <input type="text" id="FullName" name="FullName"><br>
   <label for="phone">Phone:</label><br>
   <textarea id="phone" name="phone" rows="2" cols="30"></textarea>
-</div><br>
+</div><p class="nothing"></p>
 <label for="App">App:</label>
   <input type="text" id="App" name="App">
   <input tabindex="1" type="text" id="KBID" name="KBID">
@@ -86,10 +96,9 @@ input{
   <label for="temp_info">Temp:</label>
     <input type="text" id="temp_info" name="temp_info"><br>
   <label for="next_ticket_notes">Next Tickets Notes:</label><br>
-    <textarea id="next_ticket_notes" name="next_ticket_notes" rows="4" cols="60"></textarea><br>
+    <textarea id="next_ticket_notes" name="next_ticket_notes" rows="3" cols="60"></textarea><br>
   This Ticket's Notes:
-</div>
-<br>
+</div><p class="nothing"></p>
 <textarea id="this_call" name="this_call" rows="10" cols="60"></textarea><br>
 
 <!--
@@ -98,13 +107,13 @@ input{
 *************************/
 -->
 
-<input list="RemoteOrNots" name="RemoteOrNot" id="RemoteOrNot" size="7">
+<input tabindex="1" list="RemoteOrNots" name="RemoteOrNot" id="RemoteOrNot" size="7">
 <datalist id="RemoteOrNots">
   <option value="Onsite">
   <option value="Remote">
 </datalist>
-<input list="facilities" name="facility" id="facility" size="13">
-<input type="text" id="LocationDetails" name="LocationDetails" size="25">
+<input tabindex="1" list="facilities" name="facility" id="facility" size="13">
+<input tabindex="1" type="text" id="LocationDetails" name="LocationDetails" size="25">
 <br>
 
 <!--
@@ -133,7 +142,7 @@ input{
   <input type="text" id="macro_02_a08" name="macro_02_a08"><br>
   <label for="macro_02_a09" id="macro_02_q09">Screenshot of error / issue attached? = </label>
   <input type="text" id="macro_02_a09" name="macro_02_a09"><br>
-</div><br>
+</div><p class="nothing"></p>
 
 <!--
 /*****************************
