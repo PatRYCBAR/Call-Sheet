@@ -250,34 +250,6 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
-let DynamicFormItemType = {
-  Text : function() {
-    return "type=\"text\"";
-  },
-  List : function(listName) {
-    return "list=\"" + listName + "\" type=\"text\"";
-  }
-}
-
-class DynamicFormItem{
-  constructor(id, type, label) {
-    this.id = id;
-    this.type = type;
-    this.label = label;
-    this.value = "";
-  }
-  
-  toHTML() {
-    let html_code = "";
-    html_code = html_code
-      .concat("<label for=\"" + this.id + "\" id=\"" + this.id + "_label\">" + this.label + "</label>")
-      .concat("<input " + this.type + " id=\"" + this.id + "\" name=\"" + this.id + "\"><br>");
-    return html_code;
-  }
-
-}
-
-
 
 
 /***************************
@@ -696,14 +668,60 @@ function printByLine(arrayOfStringsByLine){
 }
 
 
-</script>
 
-<!--
+/********************************
+* SCRIPTING - CLASSES / STRUCTURE
+*********************************/
+
+
+let DynamicFormItemType = {
+  Text : function() {
+    return "type=\"text\"";
+  },
+  List : function(listName) {
+    return "list=\"" + listName + "\" type=\"text\"";
+  }
+}
+
+class DynamicFormItem{
+  constructor(id, type, label) {
+    this.id = id;
+    this.type = type;
+    this.label = label;
+    this.value = "";
+  }
+  
+  toHTML() {
+    let html_code = "";
+    html_code = html_code
+      .concat("<label for=\"" + this.id + "\" id=\"" + this.id + "_label\">" + this.label + "</label>")
+      .concat("<input " + this.type + " id=\"" + this.id + "\" name=\"" + this.id + "\"><br>");
+    return html_code;
+  }
+
+}
+
+
+
+/************************
+* DATA
+*************************/
+
+
+
+/************************
+* DATA - DYNAMIC FORMS
+*************************/
+
+
+
+
+
+
 /************************
 * DATA - LISTS
 *************************/
--->
-
+</script>
 
 <!--
 /************************
