@@ -6,9 +6,6 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-##### Ticket Printing
- - Update name to "Ticket"
-
 #### Epic questions - part 2
  - capture answers to logs
  - fix variable names
@@ -72,6 +69,16 @@ MRN =
 
 ### Most Recent Changes
 
+#### 8/10/2022 & 8/11/2022
+
+#### Dynamic Form for Questions
+ - Epic form converted into new data system
+
+---
+### Past Versions' Changes
+---
+---
+
 #### 8/5/2022
 
 ##### Minor Visual clean-up
@@ -95,11 +102,6 @@ MRN =
 #### More Notes Area
  - Contains: Notes that go into next ticket
  - Contains: Notes that get deleted
-
----
-### Past Versions' Changes
----
----
 
 #### 6/16/2022
 
