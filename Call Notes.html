@@ -125,26 +125,6 @@ div {
 <label for="steps">Troubleshooting(<input tabindex="1" class="slim" list="macros_02" name="macro_02" id="facility" size="7" >):</label><button tabindex="1" type="button" class="collapsible" style="width: 250px;" id="macro_02_button">More Questions</button>
 <div class="content" id="macro_02_questions">
   <p>failed to load</p>
-  <!--
-  <label for="macro_02_a01" id="macro_02_q01">Is this inpatient or outpatient? = </label>
-  <input type="text" id="macro_02_a01" name="macro_02_a01"><br>
-  <label for="macro_02_a02" id="macro_02_q02">Job Title/Role = </label>
-  <input type="text" id="macro_02_a02" name="macro_02_a02"><br>
-  <label for="macro_02_a03" id="macro_02_q03">Department = </label>
-  <input type="text" id="macro_02_a03" name="macro_02_a03"><br>
-  <label for="macro_02_a04" id="macro_02_q04">Epic Template used = </label>
-  <input list="epic_templates" type="text" id="macro_02_a04" name="macro_02_a04"><br>
-  <label for="macro_02_a05" id="macro_02_q05">Did the user have access before? (if applicable) = </label>
-  <input type="text" id="macro_02_a05" name="macro_02_a05"><br>
-  <label for="macro_02_a06" id="macro_02_q06">Is this occurring for several patients in Epic? = </label>
-  <input type="text" id="macro_02_a06" name="macro_02_a06"><br>
-  <label for="macro_02_a07" id="macro_02_q07">Is this issue affecting several co-workers? = </label>
-  <input type="text" id="macro_02_a07" name="macro_02_a07"><br>
-  <label for="macro_02_a08" id="macro_02_q08">Have you restarted user's VDI session? (If applicable) = </label>
-  <input type="text" id="macro_02_a08" name="macro_02_a08"><br>
-  <label for="macro_02_a09" id="macro_02_q09">Screenshot of error / issue attached? = </label>
-  <input type="text" id="macro_02_a09" name="macro_02_a09"><br>
-  -->
 </div><p class="nothing"></p>
 
 <!--
@@ -605,12 +585,25 @@ function ClearFields(){
 }
 
 function ClearMacroQuestions(){
+  /*
   let id = "";
   for (i = 1; i <= 9; i++) {
     id = "macro_02_a0";
     id = id.concat("" + i);
     ObjCalled(id).value = "";
   }
+  */
+  
+  clearDynamicForm("02");
+}
+
+function loadDynamicForm(formName){
+  ObjCalled("macro_02_questions").innerHTML = dynamicForms.get(formName).toHTML();
+}
+
+function clearDynamicForm(formName){
+  dynamicForms.get(formName).clearValues();
+  loadDynamicForm(formName);
 }
 
 
@@ -704,8 +697,6 @@ class DynamicFormItem{
     return html_code;
   }
   
-  
-
 }
 
 class DynamicForm{
@@ -747,6 +738,14 @@ class DynamicForm{
     
     return HTMLoutput;
   }
+  
+  clearValues(){
+    function clearValue(value, key){
+      value.value = "";
+    }
+    
+    this.dynamicFormItems.forEach(clearValue);
+  }
 }
 
 
@@ -759,6 +758,12 @@ class DynamicForm{
 
 /************************
 * DATA - DYNAMIC FORMS
+*************************/
+
+let dynamicForms = new Map();
+
+/************************
+* DYNAMIC FORMS - Epic
 *************************/
 
 
@@ -774,8 +779,10 @@ let dynamicFormForEpic = new DynamicForm("02", [
   [DynamicFormItemType.Text(), "Screenshot of error / issue attached? = "]
 ]);
 
-ObjCalled("macro_02_questions").innerHTML = dynamicFormForEpic.toHTML();
+// ObjCalled("macro_02_questions").innerHTML = dynamicFormForEpic.toHTML();
 
+dynamicForms.set(dynamicFormForEpic.formName, dynamicFormForEpic);
+loadDynamicForm(dynamicFormForEpic.formName);
 
 
 /************************
