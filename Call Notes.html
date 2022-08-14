@@ -702,6 +702,7 @@ class DynamicFormItem{
 class DynamicForm{
   constructor(formName, arrayOfFormItemParams){
     this.formName = formName;
+    this.printout = function() { return ""; }
     
     if (arrayOfFormItemParams == undefined){
       this.dynamicFormItems = new Map();
@@ -711,7 +712,7 @@ class DynamicForm{
       
       
       function createFormItem (value, index, array){
-        let id = "macro_" + formName + "_a0" + (1 + index);
+        let id = DynamicForm.IDformat(index, formName);
         
         return new DynamicFormItem(id, value[0], value[1]);
       }
@@ -725,6 +726,14 @@ class DynamicForm{
       this.dynamicFormItems = new Map(arrayOfFormItems.map(prepFormItemForMap));
       
     }
+  }
+  
+  static IDformat(index, formName){
+    return "macro_" + formName + "_a0" + (1 + index);
+  }
+  
+  indexToID(index){
+    return DynamicForm.IDformat(index, this.formName);
   }
   
   toHTML(){
@@ -746,6 +755,20 @@ class DynamicForm{
     
     this.dynamicFormItems.forEach(clearValue);
   }
+  
+  getByID(id){
+    return this.dynamicFormItems.get(id);
+  }
+  
+  getByIndex(index){
+    return getByID(indexToID(index));
+  }
+  
+  get(id){
+    return getByID(id);
+  }
+  
+  
 }
 
 
