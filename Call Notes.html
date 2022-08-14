@@ -233,6 +233,10 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 
+let dynamicForms = new Map();
+
+
+// clearDynamicForm(dynamicFormForEpic.formName);
 
 
 /***************************
@@ -601,10 +605,21 @@ function loadDynamicForm(formName){
   ObjCalled("macro_02_questions").innerHTML = dynamicForms.get(formName).toHTML();
 }
 
+/*
+function clearDynamicForm(defaultFormName){
+  dynamicForms.forEach((value, key) => {
+    value.clearValues();
+  });
+  
+  loadDynamicForm(defaultFormName);
+}
+*/
+
 function clearDynamicForm(formName){
   dynamicForms.get(formName).clearValues();
   loadDynamicForm(formName);
 }
+
 
 
 /*********************************
@@ -670,11 +685,13 @@ function printByLine(arrayOfStringsByLine){
 *********************************/
 
 
-let DynamicFormItemType = {
-  Text : function() {
+class DynamicFormItemType {
+  
+  static Text() {
     return "type=\"text\"";
-  },
-  List : function(listName) {
+  }
+  
+  static List(listName) {
     return "list=\"" + listName + "\" type=\"text\"";
   }
 }
@@ -768,6 +785,13 @@ class DynamicForm{
     return getByID(id);
   }
   
+  saveFormValues(){
+    function clearValue(value, key){
+      value.value = "";
+    }
+    
+    this.dynamicFormItems.forEach(clearValue);
+  }
   
 }
 
@@ -783,7 +807,7 @@ class DynamicForm{
 * DATA - DYNAMIC FORMS
 *************************/
 
-let dynamicForms = new Map();
+// let dynamicForms = new Map(); // moved to SCTIPTIN - INITIALIATION
 
 /************************
 * DYNAMIC FORMS - Epic
