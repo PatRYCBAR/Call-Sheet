@@ -234,6 +234,7 @@ for (i = 0; i < coll.length; i++) {
 }
 
 let dynamicForms = new Map();
+initiateDynamicForms();
 
 
 // clearDynamicForm(dynamicFormForEpic.formName);
@@ -684,6 +685,42 @@ function printByLine(arrayOfStringsByLine){
 * SCRIPTING - CLASSES / STRUCTURE
 *********************************/
 
+class Debugger {
+  constructor(debugWindowID, debugContainerID){
+    this.debugWindow = document.getElementById(debugWindowID);
+    this.printing = true;
+    
+    if (debugContainerID == undefined){
+      this.debugContainer = document.getElementById(debugWindowID);
+    }
+    else {
+      this.debugContainer = document.getElementById(debugContainerID);
+    }
+  }
+  
+  activate(){
+    this.debugContainer.style.display = "initial";
+    this.printing = true;
+  }
+  
+  deactivate(){
+    this.debugContainer.style.display = "none";
+    this.printing = false;
+  }
+  
+  debug(message){
+    if (this.printing){
+      let current = this.debugWindow.innerHTML;
+      
+      current += "\n" + message;
+      
+      this.debugWindow.innerHTML = current;
+    }
+  }
+  
+  conditionalDebug(message, cqqqqqqqqqqqq
+}
+
 
 class DynamicFormItemType {
   
@@ -809,6 +846,8 @@ class DynamicForm{
 
 // let dynamicForms = new Map(); // moved to SCTIPTIN - INITIALIATION
 
+// function initiateDynamicForms(){
+
 /************************
 * DYNAMIC FORMS - Epic
 *************************/
@@ -826,15 +865,19 @@ let dynamicFormForEpic = new DynamicForm("02", [
   [DynamicFormItemType.Text(), "Screenshot of error / issue attached? = "]
 ]);
 
-// ObjCalled("macro_02_questions").innerHTML = dynamicFormForEpic.toHTML();
 
 dynamicForms.set(dynamicFormForEpic.formName, dynamicFormForEpic);
 loadDynamicForm(dynamicFormForEpic.formName);
 
 
+// End of DYNAMIC FORMS
+// }
+
+
 /************************
 * DATA - LISTS
 *************************/
+
 </script>
 
 <!--
