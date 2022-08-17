@@ -6,63 +6,37 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 ---
 ### Upcoming Changes
 
-#### Epic questions - part 2
+##### Dyanmic Forms - Implementation
  - capture answers to logs
- - fix variable names
- - update logs to be more streamlined
 
-#### Formatting Button for "Follow-ups"
-
-#### Button for just the subject
+##### Dyanmic Forms - New Forms
+ - Outbound Calls / follow-ups
+ 
+##### Button for just the subject
 
 ##### VDI output section
  - input to PC section
  - leave PC name
  - append VDI format to end of notes
 
+#### Add "OUTBOUND" and "CALL" under list of call types
 
-##### Add "OUTBOUND" and "CALL" under list of call types
-
-
-##### Parallel Tickets
+#### Parallel Tickets
  - Stick another ticket on the side
  - Button in the top row with text box containing alt Ticket number
  - Press a button to swap the active ticket in the collapsed spot.
  - How to clear? Press "Next Call" and then swap and then "Next Call" again.
 
+#### Escalation - Imporovements
+ - Escalation for time
+ - Bring escalation text into the Troublshooting notes
 
-##### Escalation Revamp
+##### Sending to next team
 
-###### Escalate for time
+#### Quick-Insert Text Blurbs
+ - PC profile (See Examples.md)
+ - PHI details (See Examples.md)
 
-###### Bring escalation text into the Troublshooting notes
-
-
-##### Make Macro-creator 2
-
-###### Send-up text
-
-###### Template for Chat message for AD Account reactivation
-```
-
-AD Account reactivation
-Can someone re-enable this account for me please?
-User ID = ___
-Facility = ___
-INC000000000
-Activation condition = ___.Active in PeopleSoft / Inactive in PeopleSoft, but IIQ has future start date
-```
-
-###### Add quick-format for PC profile
- - `PC is = __.stationary desktop / WOW > ___.separate / combined tower-monitor`
-
-###### Add quick-format for PHI details
-```
-
-Patient name = 
-DOB = 
-MRN = 
-```
 
 
 ---
@@ -71,7 +45,7 @@ MRN =
 
 #### 8/10/2022 & 8/11/2022 & 8/12/2022
 
-#### Dynamic Form for Questions
+##### Dynamic Form for Questions
  - Epic form converted into new data system
 
 ---
