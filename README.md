@@ -3,7 +3,9 @@
 Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtml_default
 
 ## Changes
+
 ---
+
 ### Upcoming Changes
 
 ##### Dyanmic Forms - Implementation
@@ -19,21 +21,21 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - leave PC name
  - append VDI format to end of notes
 
-#### Add "OUTBOUND" and "CALL" under list of call types
+##### Add "OUTBOUND" and "CALL" under list of call types
 
-#### Parallel Tickets
+##### Parallel Tickets
  - Stick another ticket on the side
  - Button in the top row with text box containing alt Ticket number
  - Press a button to swap the active ticket in the collapsed spot.
  - How to clear? Press "Next Call" and then swap and then "Next Call" again.
 
-#### Escalation - Imporovements
+##### Escalation - Imporovements
  - Escalation for time
  - Bring escalation text into the Troublshooting notes
 
 ##### Sending to next team
 
-#### Quick-Insert Text Blurbs
+##### Quick-Insert Text Blurbs
  - PC profile (See Examples.md)
  - PHI details (See Examples.md)
 
