@@ -13,8 +13,22 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 ##### Dyanmic Forms - New Forms
  - Outbound Calls / follow-ups
- 
+ - Printer output (with lists)
+ - User Activation (with lists)
+ - Repeated lockouts
+
+##### Button to deploy new window with same URL
+Use:
+ - https://www.w3schools.com/howto/howto_js_get_url.asp
+ - https://stackoverflow.com/questions/3724106/how-to-exchange-variables-between-two-html-pages
+
+##### Next Ticket - Improvement
+ - Merge-in text, before moving on
+
 ##### Button for just the subject
+
+##### Variable-replacement from the "For Proc" field
+ - Activation
 
 ##### VDI output section
  - input to PC section
@@ -28,6 +42,7 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
  - Button in the top row with text box containing alt Ticket number
  - Press a button to swap the active ticket in the collapsed spot.
  - How to clear? Press "Next Call" and then swap and then "Next Call" again.
+ - Some way to chain tickets together (see Examples.md)
 
 ##### Escalation - Imporovements
  - Escalation for time
