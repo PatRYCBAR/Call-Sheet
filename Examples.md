@@ -54,3 +54,8 @@ Printer Name =  	___ (from pervious ticket - NOT IN SHAREPOINT)
 Epic Printer Name =  	___ (from pervious ticket - NOT IN SHAREPOINT)
 Printer Location = 	___ (provided by user - NOT IN SHAREPOINT)
 ```
+
+###### Some way to chain tickets together - examples:
+ - New user
+ - Reset password
+ - Duo Setup
