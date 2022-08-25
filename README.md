@@ -8,6 +8,9 @@ Using this for working: https://www.w3schools.com/html/tryit.asp?filename=tryhtm
 
 ### Upcoming Changes
 
+##### Epic Template List
+Beacon [100004]
+
 ##### Dyanmic Forms - Implementation
  - capture answers to logs
 
