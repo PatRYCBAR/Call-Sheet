@@ -69,15 +69,30 @@ MRN =
 
 ### Most Recent Changes
 
-#### 8/10/2022 & 8/11/2022
+#### 8/13/2024 & 8/14/2024
 
-#### Dynamic Form for Questions
- - Epic form converted into new data system
+#### Add Quick Template (Text Block)
+ - adding way to put in blocks of text based on the drop-down next to "Troubleshooting"
+ - includes:
+   - Password Reset > Resolved
+   - Password Reset > Tier 2
+   - Unlock
+   - Unblock
+
+#### Updated Location List: Replaced Coney with SB
+ - Removed "CONEY" from Location list
+ - Added "SOUTH BROOKLYN" to Location list
 
 ---
 ### Past Versions' Changes
 ---
 ---
+
+
+#### 8/10/2022 & 8/11/2022
+
+#### Dynamic Form for Questions
+ - Epic form converted into new data system
 
 #### 8/5/2022
 
