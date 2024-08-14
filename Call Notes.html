@@ -830,6 +830,18 @@ tempQuickTemplate = tempQuickTemplate.concat("Unblocked > logged-in successfully
 
 quickTemplates.set("Unblock",tempQuickTemplate);
 
+/************************
+* QUICK TEMPLATES - Tier 2 (General)
+*************************/
+
+tempQuickTemplate = "";
+tempQuickTemplate = tempQuickTemplate.concat("\n")
+                                 .concat("\nSending to Tier 2 due to time limit:")
+                                 .concat("\n");
+
+quickTemplates.set("Tier 2 (General)",tempQuickTemplate);
+
+
 
 
 /************************
@@ -898,12 +910,11 @@ loadDynamicForm(dynamicFormForEpic.formName);
 -->
 
 <datalist id="macros_02">
-  <option value="___">
+  <option value="Tier 2 (General)">
   <option value="Password Reset > Resolved">
   <option value="Password Reset > Tier 2">
   <option value="Unlock">
   <option value="Unblock">
-  <option value="Epic">
 </datalist>
 
 <!--
