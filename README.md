@@ -74,10 +74,12 @@ MRN =
 #### Add Quick Template (Text Block)
  - adding way to put in blocks of text based on the drop-down next to "Troubleshooting"
  - includes:
+   - Tier 2 (General)
    - Password Reset > Resolved
    - Password Reset > Tier 2
    - Unlock
    - Unblock
+ - Removed "Epic" and "___" from list
 
 #### Updated Location List: Replaced Coney with SB
  - Removed "CONEY" from Location list
