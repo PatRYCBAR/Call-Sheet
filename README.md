@@ -69,6 +69,22 @@ MRN =
 
 ### Most Recent Changes
 
+#### 8/15/2024
+
+#### Added More Quick Templates
+ - added more Quick Templates:
+   - Possible Outage
+   - Tier 3 (Epic)
+   - Epic Inactive > Final Approver
+
+#### Fixed Quick Template formatting
+ - Don't add new line if blank
+
+---
+### Past Versions' Changes
+---
+---
+
 #### 8/13/2024 & 8/14/2024
 
 #### Add Quick Template (Text Block)
@@ -84,11 +100,6 @@ MRN =
 #### Updated Location List: Replaced Coney with SB
  - Removed "CONEY" from Location list
  - Added "SOUTH BROOKLYN" to Location list
-
----
-### Past Versions' Changes
----
----
 
 
 #### 8/10/2022 & 8/11/2022
