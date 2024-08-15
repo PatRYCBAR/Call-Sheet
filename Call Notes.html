@@ -317,7 +317,8 @@ function AddQuickTemplate() {
   
   oldStep = ValueCalled("steps");
   
-  ObjCalled("steps").value = oldStep.concat("\n" + selectedTemplate);
+  if(oldStep != "")oldStep = oldStep.concat("\n");
+  ObjCalled("steps").value = oldStep.concat(selectedTemplate);
 }
 
 /***********************************
@@ -787,7 +788,7 @@ let tempQuickTemplate = "";
 
 tempQuickTemplate = "";
 tempQuickTemplate = tempQuickTemplate.concat("Some words of testing")
-                                 .concat("\nMore words of testing");
+                            .concat("\n").concat("More words of testing");
 
 quickTemplates.set("Test",tempQuickTemplate);
 
@@ -806,9 +807,9 @@ quickTemplates.set("Password Reset > Resolved",tempQuickTemplate);
 
 tempQuickTemplate = "";
 tempQuickTemplate = tempQuickTemplate.concat("Reset password > stuck on ___.creating/logging-in with new password.")
-                                 .concat("\n")
-                                 .concat("\nSending to Tier 2 due to time limit:")
-                                 .concat("\n");
+                        .concat("\n").concat("")
+                        .concat("\n").concat("Sending to Tier 2 due to time limit:")
+                        .concat("\n").concat("");
 
 quickTemplates.set("Password Reset > Tier 2",tempQuickTemplate);
 
@@ -835,11 +836,44 @@ quickTemplates.set("Unblock",tempQuickTemplate);
 *************************/
 
 tempQuickTemplate = "";
-tempQuickTemplate = tempQuickTemplate.concat("\n")
-                                 .concat("\nSending to Tier 2 due to time limit:")
-                                 .concat("\n");
+tempQuickTemplate = tempQuickTemplate.concat("")
+                        .concat("\n").concat("Sending to Tier 2 due to time limit:")
+                        .concat("\n").concat("");
 
 quickTemplates.set("Tier 2 (General)",tempQuickTemplate);
+
+/************************
+* QUICK TEMPLATES - Possible Outage
+*************************/
+
+tempQuickTemplate = "";
+tempQuickTemplate = tempQuickTemplate.concat("")
+                        .concat("\n").concat("Sending up as Possible Outage due to ___:")
+                        .concat("\n").concat("");
+
+quickTemplates.set("Possible Outage",tempQuickTemplate);
+
+/************************
+* QUICK TEMPLATES - Tier 3 (Epic)
+*************************/
+
+tempQuickTemplate = "";
+tempQuickTemplate = tempQuickTemplate.concat("")
+                        .concat("\n").concat("Sending to Tier 3 to look into further:")
+                        .concat("\n").concat("");
+
+quickTemplates.set("Tier 3 (Epic)",tempQuickTemplate);
+
+/************************
+* QUICK TEMPLATES - Epic Inactive > Final Approver
+*************************/
+
+tempQuickTemplate = "";
+tempQuickTemplate = tempQuickTemplate.concat("Epic Account is Inactive.")
+                        .concat("\n").concat("Advised to reach out to Epic Final Approver: https://applicationslearning.nychhc.org/Document/GetTrainingDoc?fn=Epic%20End%20User%20Access%20Request%20Process.pdf");
+
+quickTemplates.set("Epic Inactive > Final Approver",tempQuickTemplate);
+
 
 
 
@@ -911,10 +945,13 @@ loadDynamicForm(dynamicFormForEpic.formName);
 
 <datalist id="macros_02">
   <option value="Tier 2 (General)">
+  <option value="Tier 3 (Epic)">
   <option value="Password Reset > Resolved">
   <option value="Password Reset > Tier 2">
   <option value="Unlock">
   <option value="Unblock">
+  <option value="Epic Inactive > Final Approver">
+  <option value="Possible Outage">
 </datalist>
 
 <!--
