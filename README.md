@@ -69,6 +69,21 @@ MRN =
 
 ### Most Recent Changes
 
+#### 8/23/2024
+
+#### Added More Quick Templates
+ - Added "Email ender" to the Quick Templates
+
+#### Fixed Quick Template formatting
+ - Updated Epic Templates by adding the following values:
+   - Willow Ambulatory [100038]
+   - Willow [100037]
+   - Cupid [100009]
+
+---
+### Past Versions' Changes
+---
+---
 #### 8/15/2024
 
 #### Added More Quick Templates
@@ -80,10 +95,6 @@ MRN =
 #### Fixed Quick Template formatting
  - Don't add new line if blank
 
----
-### Past Versions' Changes
----
----
 
 #### 8/13/2024 & 8/14/2024
 
