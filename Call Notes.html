@@ -300,7 +300,7 @@ function ToLower() {
 
 function KBCIURL() {
   let KBID = ValueCalled("KBID");
-  let KBCIsite = "http://esdwiki.nychhc.org/index.php?title=Special:Search&search=" + KBID + "#ServiceNow_CI";
+  let KBCIsite = "http://esdwiki.nychhc.org/mediawiki/index.php?search=" + KBID + "&title=Special%3ASearch&go=Go#ServiceNow_CI";
   window.open(KBCIsite);
 }
 
@@ -333,6 +333,9 @@ function CleanBomgar() {
   let lastReboot = "";
   let lastReboot_start = "Uptime:              ";
   let lastReboot_end = "Required Skills:     ";
+  let userName = "";
+  let userName_start = "Customer Name:       ";
+  let userName_end = "Computer Name:       ";
   let oldStep = "";
   
   fullStats = ValueCalled("PCinfo");
@@ -340,11 +343,12 @@ function CleanBomgar() {
   
   PCname = StringBetween(fullStats, PCname_start, PCname_end, -1);
   lastReboot = StringBetween(fullStats, lastReboot_start, lastReboot_end, -1);
+  userName = StringBetween(fullStats, userName_start, userName_end, -1);
   
   if(PCname !== "")
   {
     ObjCalled("PCinfo").value = PCname;
-    ObjCalled("steps").value = oldStep.concat("\nLast Reboot = " + lastReboot);
+    ObjCalled("steps").value = oldStep.concat("\nLast Reboot = " + lastReboot).concat("\nUser name = " + userName);
   }
 }
 
@@ -385,15 +389,14 @@ function CompressCall() {
   
   
   compNotes = printByLine([
-    "Issue Description (Including Error Message) = ",
     AppID + " " + TicketType + callNotes,
-    "",
-    "ESD Troubleshooting =",
-    steps,
     "",
     "PC Name = " + PCname,
     "Username = " + userID,
-    "KB ID = " + KBID,
+    "",
+    "ESD Troubleshooting =",
+    KBID,
+    steps,
     "",
     "Location = " + RemoteOrNot + " / " + facility + " / " + LocationDetails,
     "",
@@ -886,6 +889,26 @@ tempQuickTemplate = tempQuickTemplate.concat("")
 
 quickTemplates.set("Email ender",tempQuickTemplate);
 
+/************************
+* QUICK TEMPLATES - Unlock (later)
+*************************/
+
+tempQuickTemplate = "";
+tempQuickTemplate = tempQuickTemplate.concat("Unlocked > unable to confirm login right now.")
+                        .concat("\n").concat("User will call back later if any further assistance is needed.");
+
+quickTemplates.set("Unlock (later)",tempQuickTemplate);
+
+/************************
+* QUICK TEMPLATES - Password Reset > Resolved (later)
+*************************/
+
+tempQuickTemplate = "";
+tempQuickTemplate = tempQuickTemplate.concat("Reset password > unable to confirm login right now.")
+                        .concat("\n").concat("User will call back later if any further assistance is needed.");
+
+quickTemplates.set("Password Reset > Resolved (later)",tempQuickTemplate);
+
 
 
 
@@ -950,6 +973,7 @@ loadDynamicForm(dynamicFormForEpic.formName);
   <option value="Cupid [100009]">
   <option value="Willow [100037]">
   <option value="Willow Ambulatory [100038]">
+  <option value="Home Health [100014]">
 </datalist>
 
 <!--
@@ -963,7 +987,9 @@ loadDynamicForm(dynamicFormForEpic.formName);
   <option value="Tier 3 (Epic)">
   <option value="Password Reset > Resolved">
   <option value="Password Reset > Tier 2">
+  <option value="Password Reset > Resolved (later)">
   <option value="Unlock">
+  <option value="Unlock (later)">
   <option value="Unblock">
   <option value="Epic Inactive > Final Approver">
   <option value="Possible Outage">
