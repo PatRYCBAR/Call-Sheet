@@ -69,36 +69,49 @@ MRN =
 
 ### Most Recent Changes
 
-#### 8/23/2024
+#### 9/5/2024
 
-#### Added More Quick Templates
- - Added "Email ender" to the Quick Templates
+##### Added Epic Template "Home Health [100014]".
+##### Added QuickForms:
+- "Unlock (later)"
+- "Password Reset > Resolved (later)"
+##### Rearranged output layout:
+- removed first part
+- put troubleshooting at the end
+##### Bomgar parser now shows Username.
+##### Repaired CI lookup.
 
-#### Fixed Quick Template formatting
- - Updated Epic Templates by adding the following values:
-   - Willow Ambulatory [100038]
-   - Willow [100037]
-   - Cupid [100009]
 
 ---
 ### Past Versions' Changes
 ---
 ---
+#### 8/23/2024
+
+##### Added More Quick Templates
+ - Added "Email ender" to the Quick Templates
+
+##### Fixed Quick Template formatting
+ - Updated Epic Templates by adding the following values:
+   - Willow Ambulatory [100038]
+   - Willow [100037]
+   - Cupid [100009]
+
 #### 8/15/2024
 
-#### Added More Quick Templates
+##### Added More Quick Templates
  - added more Quick Templates:
    - Possible Outage
    - Tier 3 (Epic)
    - Epic Inactive > Final Approver
 
-#### Fixed Quick Template formatting
+##### Fixed Quick Template formatting
  - Don't add new line if blank
 
 
 #### 8/13/2024 & 8/14/2024
 
-#### Add Quick Template (Text Block)
+##### Add Quick Template (Text Block)
  - adding way to put in blocks of text based on the drop-down next to "Troubleshooting"
  - includes:
    - Tier 2 (General)
@@ -108,14 +121,14 @@ MRN =
    - Unblock
  - Removed "Epic" and "___" from list
 
-#### Updated Location List: Replaced Coney with SB
+##### Updated Location List: Replaced Coney with SB
  - Removed "CONEY" from Location list
  - Added "SOUTH BROOKLYN" to Location list
 
 
 #### 8/10/2022 & 8/11/2022
 
-#### Dynamic Form for Questions
+##### Dynamic Form for Questions
  - Epic form converted into new data system
 
 #### 8/5/2022
@@ -129,13 +142,13 @@ MRN =
  - Visual update for drop-downs
  - Skipping Location fields in tabbing & increasing spacing for some boxes
 
-#### Internal code changes
+##### Internal code changes
  - more comments to clarify code parts
  - re-organized & categorized all methods
  - migrating and condensing datalists
  - condensing repetitive code into methods
 
-#### Dynamic Form for Questions
+##### Dynamic Form for Questions
  - groundwork laid-out
 
 #### More Notes Area
@@ -144,11 +157,11 @@ MRN =
 
 #### 6/16/2022
 
-#### Name field
+##### Name field
  - dedicated field to capture Full Name
  - updated Call formatting to incorporate this
 
-#### Epic questions - part 1
+##### Epic questions - part 1
  - created section to hold questionaire
  - created button to utilize questionaire
 
